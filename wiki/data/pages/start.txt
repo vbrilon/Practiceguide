@@ -1,0 +1,7 @@
+This is the index page for the Guitar Log tool
+
+[[overview|Design Overview]]
+
+[[specs|Functional Definitions]]
+
+[[app|App Design Documents]]

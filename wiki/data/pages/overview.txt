@@ -1,0 +1,23 @@
+==== General Design ====
+The core purpose of the app is to serve as a practice log of daily musical practice. In addition the app is able to provide data storage of what has already been practiced, how often it was done, and what exercises have/have not been done within a certain time frame.
+
+==== UI Features =====
+The site should be heavy on AJAX and should minimize the amount of time a user should have to change pages.  The state of any session should be automagically saved w/o the user having to explicitly doing so. The purpose of this is to lower the friction and resistance of any user wanting to use it. The majority of functionality should be accessed via keyboard shortcuts in addition to mouse clicks.
+==== Functionality =====
+  * On the individual [[specs|exercise]] page, the spacebar stops/starts timer and metronome. Stopping the timer records the time/bpm for that exercise. The user also has the option to rate his playing 1-10 to track how well he played the exercise.
+  * User can choose to keep/delete that exercise record. By default, the record is stored.
+  * Stored data can be viewed by grouping (type of exercise), individual exercise, or by date
+  * Grouping by [[specs|collection]]  shows all the exercises for that group with latest metrics for each exercise and links to individual exercise page 
+  * Viewed by [[specs|session date]] shows all the exercises done on that date along with performance metrics
+  * Individual exercises show a history of performance metrics for that exercise along with detailed information for that exercise
+  * Within the exercise page, show a timer and/or a metronome
+  * User can add arbitrary notes, images, or audio files to go with each exercise generally, or add notes/images/audio for a particular day for the exercise
+
+  * Need lots of options (mostly hidden until needed) to set preferences
+
+==== Future Ideas =====
+  * Share exercises with friends on site
+  * Social media (twitter/FB) integration
+  * Suggest to user exercises for certain categories and difficulty levels
+  * Use [[http://0xfe.blogspot.com/2010/05/music-notation-with-html5-canvas.html|music notation in HTML5]] for rendering music data
+  * Use [[http://jtab.tardate.com/|tab notation in Javascript]] to render exercises

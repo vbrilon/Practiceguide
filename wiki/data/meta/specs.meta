@@ -1,0 +1,8 @@
+a:2:{s:7:"current";a:7:{s:4:"date";a:2:{s:7:"created";i:1282068714;s:8:"modified";i:1325663002;}s:7:"creator";s:0:"";s:11:"last_change";a:7:{s:4:"date";i:1325663002;s:2:"ip";s:13:"76.198.130.31";s:4:"type";s:1:"E";s:2:"id";s:5:"specs";s:4:"user";N;s:3:"sum";s:0:"";s:5:"extra";s:0:"";}s:5:"title";s:22:"Functional Definitions";s:11:"description";a:2:{s:15:"tableofcontents";a:1:{i:0;a:4:{s:3:"hid";s:22:"functional_definitions";s:5:"title";s:22:"Functional Definitions";s:4:"type";s:2:"ul";s:5:"level";i:3;}}s:8:"abstract";s:480:"Functional Definitions
+
+	*  Exercise: A single piece of music designed to be practiced at a single sitting without interruption. An exercise has associated with it:
+		*  0 or more images (any image style that can be displayed inline, so does not include PDF)
+		*  0 or more audio files that can be played inline (MID, WAV, or MP3)
+		*  0 or more sessions it's associated with
+		*  0 or more collections it's associated with
+		*  1 definition of the actual exercise to be performed";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}s:8:"relation";a:1:{s:10:"firstimage";s:0:"";}}s:10:"persistent";a:3:{s:4:"date";a:2:{s:7:"created";i:1282068714;s:8:"modified";i:1325663002;}s:7:"creator";s:0:"";s:11:"last_change";a:7:{s:4:"date";i:1325663002;s:2:"ip";s:13:"76.198.130.31";s:4:"type";s:1:"E";s:2:"id";s:5:"specs";s:4:"user";N;s:3:"sum";s:0:"";s:5:"extra";s:0:"";}}}

@@ -1,0 +1,15 @@
+==== Functional Definitions ==== 
+
+  * **Exercise**: A single piece of music designed to be practiced at a single sitting without interruption. An exercise has associated with it:
+    * 0 or more images (any image style that can be displayed inline, so does not include PDF)
+    * 0 or more audio files that can be played inline (MID, WAV, or MP3)
+    * 0 or more sessions it's associated with
+    * 0 or more collections it's associated with
+    * 1 definition of the actual exercise to be performed
+  * **Session**: A grouping consisting of one more exercises assigned to that specific session. (i.e., "Exercises for Saturday")
+  * **Collection**: A grouping consisting of one more exercises assigned to that specific collection. Method-centered (i.e., "Left hand exercises", "Rhythm exercises", etc)
+  * **Performance**: 
+    * An instance of an Exercise. 
+    * Has a history for that unique performance of the exercise including: date played, speed played at, quality of playing at that speed, and notes about that performance
+    * Is associated with 1 Exercise
+    * Is associated with 1 Session
