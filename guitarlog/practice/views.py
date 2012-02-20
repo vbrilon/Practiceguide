@@ -16,5 +16,5 @@ def exercises(request, id):
 	return HttpResponse("Hello, world. You're at the exercise named: %s" % e.title)
     
 def index(request):
-	return HttpResponse("Hello, world. You're at the main index.")
+	return render_to_response('index.html')
 	

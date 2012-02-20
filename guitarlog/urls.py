@@ -6,8 +6,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
 	url(r'^$', 'practice.views.index'),
-    url(r'^exercises/$', 'practice.views.exercises_index'),
-    url(r'^exercises/(?P<id>\d+)/$', 'practice.views.exercises'),
+    url(r'^practice/$', 'practice.views.exercises_index'),
+    url(r'^practice/(?P<id>\d+)/$', 'practice.views.exercises'),
     # Examples:
     # url(r'^$', 'guitarlog.views.home', name='home'),
     # url(r'^guitarlog/', include('guitarlog.foo.urls')),
