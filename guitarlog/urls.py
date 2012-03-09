@@ -8,6 +8,7 @@ urlpatterns = patterns('',
 	url(r'^$', 'practice.views.index'),
     url(r'^practice/$', 'practice.views.exercises_index'),
     url(r'^practice/(?P<id>\d+)/$', 'practice.views.exercises'),
+    url(r'^user/$', 'practice.views.create_user'),
     # Examples:
     # url(r'^$', 'guitarlog.views.home', name='home'),
     # url(r'^guitarlog/', include('guitarlog.foo.urls')),
