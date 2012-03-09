@@ -1,0 +1,11 @@
+Hello world!
+{% if message %}<p><strong>{{ message }}</strong></p>{% endif %}
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="/user/" method="post">
+{% csrf_token %}
+<table>
+{{ form.as_table }}
+</table>
+<input type="submit" value="Save" />
+</form>
