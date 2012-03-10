@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title>Guitar Log | {% block title %} {% endblock %}</title>
+</head>
+<body>
+	<div id="nav"><a href="/">Home</a>|
+		{% if user.is_authenticated %}
+		Welcome {{ user.username }}
+		(<a href="/logout/">Logout</a>)
+		{% else %}
+		<a href="/login/">Login</a>
+		{% endif %}
+		</div>
+	<h1>{% block head %} {% endblock %}</h1>
+	{% block content %} {% endblock %}
+</body>
+</html>

@@ -1,3 +1,9 @@
+{% extends "base.html" %}
+{% block title %} Exercises for {{ user.username }} {% endblock %}
+{% block head %} Exercises for {{ user.username }} {% endblock %}
+
+{% block content %}
+
 {% if ex_list %}
     <ul>
     {% for ex in ex_list %}
@@ -7,3 +13,4 @@
 {% else %}
     <p>No exercises are available.</p>
 {% endif %}
+{% endblock %}

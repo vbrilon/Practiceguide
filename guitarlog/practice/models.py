@@ -43,8 +43,3 @@ class Performance(models.Model):
 		
 	class Meta:
 		ordering = ['-created_date']
-		
-class UserForm(ModelForm):
-	class Meta:
-		model = User
-		fields = ["username", "email"]
