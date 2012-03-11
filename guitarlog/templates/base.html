@@ -1,7 +1,10 @@
 <html>
 <head>
 	<title>Guitar Log | {% block title %} {% endblock %}</title>
+	<link rel="stylesheet" href="/site_media/style.css" type="text/css">
+	<script type="text/javascript" scr="/site_media/jquery.js"></script>
 </head>
+	{% block external %} {% endblock %}
 <body>
 	<div id="nav"><a href="/">Home</a>|
 		{% if user.is_authenticated %}
