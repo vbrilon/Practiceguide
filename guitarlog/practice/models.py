@@ -14,17 +14,11 @@ class Exercise(models.Model):
 		
 	def __str__(self):
 		return self.title
-			
-class Collection(models.Model):
-	title = models.CharField(max_length=250, blank=False, null=False)
-	description = models.CharField(max_length=500, blank=True, null=True)
-	user = models.ForeignKey(User)
-	
+				
 class Session(models.Model):
 	created_date = models.DateTimeField(default=datetime.datetime.now)
 	title = models.CharField(max_length=250, blank=False, null=False)
 	description = models.CharField(max_length=500, blank=True, null=True)
-	collection = models.ForeignKey(Collection)
 	notes = models.CharField(max_length=500, blank=True, null=True)
 	user = models.ForeignKey(User)
 	
@@ -35,7 +29,7 @@ class Performance(models.Model):
 	speed = models.IntegerField()
 	notes = models.CharField(max_length=500, blank=True, null=True)
 	exercise = models.ForeignKey(Exercise)
-	session = models.ForeignKey(Session)
+#	session = models.ForeignKey(Session)
 	user = models.ForeignKey(User)
 	
 	def __str__(self):
