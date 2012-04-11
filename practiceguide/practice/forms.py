@@ -11,4 +11,5 @@ class ExerciseCreateForm(forms.Form):
 class ExercisePracticeForm(forms.Form):
   notes = forms.CharField(label=u'Practice Notes', widget=forms.Textarea)
   speed = forms.CharField(label=u'Speed Practiced', max_length=3)
-  choice = forms.CharField(label=u'How\'d You Do?', widget=forms.Select(choices=Performance.PERFORMANCE_CHOICES))
+  choice = forms.CharField(label=u'How\'d You Do?', widget=forms.Textarea)
+
