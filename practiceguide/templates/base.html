@@ -1,4 +1,5 @@
 <!doctype html>
+{% load gravatar_tags %}
 <html>
 <head>
 	<title>Practiceguide | {% block title %} {% endblock %}</title>
@@ -10,7 +11,7 @@
 		<h1><a href="/">Practiceguide</a></h1>
 		{% if user.is_authenticated %}
 		<div id="signed_in_user_box">
-			<img src="">Victor B. <span class="expander"></span>
+			<img src={% gravatar_url user.email %}> {{ user.username }} <span class="expander"></span>
 		</div>
 		<nav id="primary_nav">
 			<ul>
@@ -25,21 +26,15 @@
 		{% endif %}
 	</div>
 	{% block main %} {% endblock %}
-	<footer>
+	<footer id="site_footer">
 		<nav>
 			<ul>
-				<li>Terms</li>
-				<li>Privacy</li>
-				<li>About Us</li>
+				<li>&copy;2012 Victor++</li>
+				<li><a href="/terms/">Terms</a></li>
+				<li><a href="/privacy/">Privacy</a></li>
+				<li><a href="/about/">About Us</a></li>
 			</ul>
 		</nav>
-		{% if user.is_authenticated %}
-		Welcome {{ user.username }}
-		(<a href="/logout/">Logout</a>)
-		{% else %}
-		<a href="/login/">Login</a>|
-		<a href="/register/">Register</a>
-		{% endif %}
 	</footer>
 </body>
 </html>
