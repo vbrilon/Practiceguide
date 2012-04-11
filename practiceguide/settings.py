@@ -1,4 +1,4 @@
-# Django settings for guitarlog project.
+# Django settings for practiceguide project.
 import os
 #SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
