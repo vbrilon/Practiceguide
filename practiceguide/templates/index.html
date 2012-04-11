@@ -14,19 +14,3 @@
 	{% endif %}
 </div>
 {% endblock %}
-
-<!--
-{% load gravatar_tags %}
-<img src={% gravatar_url 'gabekneisley@gmail.com' %}>
--->
-
-{% if user.username %}
-<p>Welcome {{ user.username }}</p>
-<a href="create_exercise">Create exercises</a><br>
-<a href="create_schedule">Set up exercise schedule</a><br>
-<a href="practice">Practice your exercises</a><br>
-<a href="review">Review your practices</a><br>
-{% else %}
-<p> <a href="/login"> Please login to access your practice file</a> </p>
-{% endif %}
-{% endblock %}
