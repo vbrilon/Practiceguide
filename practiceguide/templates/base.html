@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
 <head>
 	<title>Practiceguide | {% block title %} {% endblock %}</title>
@@ -5,13 +6,22 @@
 	<script type="text/javascript" scr="/site_media/jquery.js"></script>
 </head>
 <body>
-	<div id="masthead"><a href="/">Home</a>|
+	<div id="masthead">
+		<h1>Practiceguide</h1>
 		{% if user.is_authenticated %}
-		Welcome {{ user.username }}
-		(<a href="/logout/">Logout</a>)
+		<div id="signed_in_user_box">
+			<img src="">Victor B. <span class="expander"></span>
+		</div>
+		<nav id="primary_nav">
+			<ul>
+				<li>Exercises</li>
+				<li>Practice Plans</li>
+				<li>Play Now!</li>
+				<li>Review</li>
+			</ul>
+		</nav>
 		{% else %}
-		<a href="/login/">Login</a>|
-		<a href="/register/">Register</a>
+		
 		{% endif %}
 	</div>
 	{% block main %} {% endblock %}
@@ -23,6 +33,13 @@
 				<li>About Us</li>
 			</ul>
 		</nav>
+		{% if user.is_authenticated %}
+		Welcome {{ user.username }}
+		(<a href="/logout/">Logout</a>)
+		{% else %}
+		<a href="/login/">Login</a>|
+		<a href="/register/">Register</a>
+		{% endif %}
 	</footer>
 </body>
 </html>

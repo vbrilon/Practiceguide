@@ -14,8 +14,35 @@ body {
 	right: 0;
 }
 
+#masthead h1 {
+	margin: 0;
+	color: #fff;
+	width: 240px;
+	float: left;
+}
+
+#signed_in_user_box {
+	float: right;
+	background: #f33;
+	width: 300px;
+}
+
+#primary_nav {
+	clear: both;
+}
+
+#primary_nav ul {
+	list-style: none;
+	padding: 0;
+}
+
+#primary_nav ul li {
+	display: inline-block;
+	width: 150px;
+}
+
 div[role=main] {
 	background: #ccf;
-	height: 700px;
-	
+	height: 1300px;
+	min-width: 1000px;
 }
