@@ -1,6 +1,21 @@
-#nav {
-	float: right;
+body {
+	margin: 0;
 }
-input {
-	display: block;
+
+#masthead {
+	background: #454545;
+	border-bottom-left-radius: 17px;
+	border-bottom-right-radius: 17px;
+	width: 600px;
+	height: 80px;
+	margin: 0 auto;
+	position: fixed;
+	left: 0;
+	right: 0;
+}
+
+div[role=main] {
+	background: #ccf;
+	height: 700px;
+	
 }

@@ -1,12 +1,11 @@
 <html>
 <head>
-	<title>Guitar Log | {% block title %} {% endblock %}</title>
+	<title>Practiceguide | {% block title %} {% endblock %}</title>
 	<link rel="stylesheet" href="/site_media/style.css" type="text/css">
 	<script type="text/javascript" scr="/site_media/jquery.js"></script>
 </head>
-	{% block external %} {% endblock %}
 <body>
-	<div id="nav"><a href="/">Home</a>|
+	<div id="masthead"><a href="/">Home</a>|
 		{% if user.is_authenticated %}
 		Welcome {{ user.username }}
 		(<a href="/logout/">Logout</a>)
@@ -14,8 +13,16 @@
 		<a href="/login/">Login</a>|
 		<a href="/register/">Register</a>
 		{% endif %}
-		</div>
-	<h1>{% block head %} {% endblock %}</h1>
-	{% block content %} {% endblock %}
+	</div>
+	{% block main %} {% endblock %}
+	<footer>
+		<nav>
+			<ul>
+				<li>Terms</li>
+				<li>Privacy</li>
+				<li>About Us</li>
+			</ul>
+		</nav>
+	</footer>
 </body>
 </html>
