@@ -23,13 +23,11 @@ class Session(models.Model):
 	user = models.ForeignKey(User)
 	
 class Performance(models.Model):
-	PERFORMANCE_CHOICES = ((1,'Poor'), (2,'OK'), (3,'Good'),)
 	created_date = models.DateTimeField(default=datetime.datetime.now)
-	rating = models.IntegerField(choices=PERFORMANCE_CHOICES, default=2)
+	rating = models.IntegerField()
 	speed = models.IntegerField()
 	notes = models.CharField(max_length=500, blank=True, null=True)
 	exercise = models.ForeignKey(Exercise)
-#	session = models.ForeignKey(Session)
 	user = models.ForeignKey(User)
 	
 	def __str__(self):

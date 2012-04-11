@@ -1,9 +1,9 @@
-import re
 from django import forms
 from django.contrib.auth.models import User
+from django.core.validators import validate_email
 
 class RegistrationForm(forms.Form):
-  username = forms.CharField(label=u'Username', max_length=30)
+  #username = forms.CharField(label=u'Username', max_length=30)
   email = forms.EmailField(label=u'Email')
   password1 = forms.CharField(label=u'Password', widget=forms.PasswordInput())
   password2 = forms.CharField(label=u'Confirm Password', widget=forms.PasswordInput())
@@ -16,12 +16,14 @@ class RegistrationForm(forms.Form):
         return password2
         raise forms.ValidationError('Passwords do not match')
             
-  def clean_username(self):
-    username = self.cleaned_data['username']
-    if not re.search(r'^\w+$', username):
-      raise forms.ValidationError("Username can only have a-z in it")
+  def clean_email(self):
+    email = self.cleaned_data['email']
+    #if not validate_email(email)
+    #  raise forms.ValidationError("Not a valid email address")
     try:
-      User.objects.get(username=username)
+      User.objects.get(email=email)
+    except User.MultipleObjectsReturned:
+      raise forms.ValidationError("Email already exists")
     except User.DoesNotExist:
-      return username
-    raise forms.ValidationError("Username already exists")
+      return email
+    raise forms.ValidationError("Email already exists")
