@@ -102,7 +102,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'guitarlog.urls'
+ROOT_URLCONF = 'practiceguide.urls'
 
 MY_ROOT = os.path.dirname(os.path.realpath(__file__))
 TEMPLATE_DIRS = (
