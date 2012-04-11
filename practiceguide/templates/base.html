@@ -11,7 +11,7 @@
 		{% if user.is_authenticated %}
 		<div id="signed_in_user_box">
 		  {% load gravatar %}
-			{% gravatar user.email 40 %} {{user.username}} <span class="expander"></span>
+		  {% gravatar user.email 40 %} {{user.username}} <span class="expander"></span>
 		</div>
 		<nav id="primary_nav">
 			<ul>
