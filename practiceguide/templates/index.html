@@ -2,7 +2,6 @@
 {% block title %} Welcome to Practiceguide {% endblock %}
 
 {% block main %}
-<div role="main">
 	{% if user.username %}
 		<p>Welcome back, {{ user.username }}</p>
 		<a href="create_exercise">Create exercises</a><br>
@@ -12,5 +11,4 @@
 	{% else %}
 		<p><a href="/login"> Please login to access your practice file</a> </p>
 	{% endif %}
-</div>
 {% endblock %}
