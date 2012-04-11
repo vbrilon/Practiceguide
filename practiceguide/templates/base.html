@@ -11,7 +11,8 @@
 		<h1><a href="/">Practiceguide</a></h1>
 		{% if user.is_authenticated %}
 		<div id="signed_in_user_box">
-			<img src={% gravatar_url user.email %}> {{ user.username }} <span class="expander"></span>
+		  {% load gravatar %}
+			{% gravatar user.email 40 %} {{user.username}} <span class="expander"></span>
 		</div>
 		<nav id="primary_nav">
 			<ul>
