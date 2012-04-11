@@ -42,9 +42,11 @@ def practice(request, id):
     
     
 def index(request):
+  params={}
+  variables = RequestContext(request, params)
   return render_to_response (
   'index.html',
-  RequestContext(request)
+  variables
 )
 
 @login_required
