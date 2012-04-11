@@ -12,18 +12,23 @@ body {
 	position: fixed;
 	left: 0;
 	right: 0;
+	top: 0;
+	color: #fff;
 }
 
 #masthead h1 {
 	margin: 0;
-	color: #fff;
 	width: 240px;
 	float: left;
 }
 
+#masthead a {
+	color: #fff;
+	text-decoration: none;
+}
+
 #signed_in_user_box {
 	float: right;
-	background: #f33;
 	width: 300px;
 }
 
@@ -38,11 +43,13 @@ body {
 
 #primary_nav ul li {
 	display: inline-block;
-	width: 150px;
+	width: 140px;
+	text-align: center;
 }
 
 div[role=main] {
 	background: #ccf;
 	height: 1300px;
 	min-width: 1000px;
+	margin-top: 90px;
 }

@@ -2,13 +2,15 @@
 {% block title %} Welcome to Practiceguide {% endblock %}
 
 {% block main %}
-{% if user.username %}
-<p>Welcome {{ user.username }}</p>
-<a href="create_exercise">Create exercises</a><br>
-<a href="create_schedule">Set up exercise schedule</a><br>
-<a href="practice">Practice your exercises</a><br>
-<a href="review">Review your practices</a><br>
-{% else %}
-<p> <a href="/login"> Please login to access your practice file</a> </p>
-{% endif %}
+<div role="main">
+	{% if user.username %}
+		<p>Welcome back, {{ user.username }}</p>
+		<a href="create_exercise">Create exercises</a><br>
+		<a href="create_schedule">Set up exercise schedule</a><br>
+		<a href="practice">Practice your exercises</a><br>
+		<a href="review">Review your practices</a><br>
+	{% else %}
+		<p><a href="/login"> Please login to access your practice file</a> </p>
+	{% endif %}
+</div>
 {% endblock %}

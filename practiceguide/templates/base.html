@@ -7,17 +7,17 @@
 </head>
 <body>
 	<div id="masthead">
-		<h1>Practiceguide</h1>
+		<h1><a href="/">Practiceguide</a></h1>
 		{% if user.is_authenticated %}
 		<div id="signed_in_user_box">
 			<img src="">Victor B. <span class="expander"></span>
 		</div>
 		<nav id="primary_nav">
 			<ul>
-				<li>Exercises</li>
-				<li>Practice Plans</li>
-				<li>Play Now!</li>
-				<li>Review</li>
+				<li><a href="/exercises/">Exercises</a></li>
+				<li><a href="/practiceplans/">Practice Plans</a></li>
+				<li><a href="/play/">Play Now!</a></li>
+				<li><a href="/review/">Review</a></li>
 			</ul>
 		</nav>
 		{% else %}
