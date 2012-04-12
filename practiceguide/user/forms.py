@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 #from django.core.validators import validate_email
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit
+from crispy_forms.layout import Submit, Button
 
 
 class RegistrationForm(forms.Form):
@@ -37,6 +37,7 @@ class RegistrationForm(forms.Form):
     self.helper.form_class = 'form-horizontal'
     self.helper.form_method = 'post'
     self.helper.form_action = '/register'
-    self.helper.add_input(Submit('submit', 'Submit'))
+    self.helper.add_input(Submit('submit', 'Start practicing for real', css_class='btn btn-primary btn-large'))
+    self.helper.add_input(Button('learn', 'Learn more', css_class='btn btn-large'))
     super(RegistrationForm, self).__init__(*args, **kwargs)
         
