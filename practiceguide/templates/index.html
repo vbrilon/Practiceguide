@@ -4,5 +4,17 @@
 {% block title %} Welcome to Practiceguide {% endblock %}
 
 {% block main %}
-{% crispy reg_form reg_form.helper %}
+{% if user.username %}
+<p>Welcome back, {{ user.username }}</p>
+<a href="/logout/">Sign out. Now. :)</a><br>
+{% else %}
+<div class="row">
+	<div id="cta" class="hero-unit">
+		<h1>Practice with purpose.</h1>
+		<p>Practiceguide is built to help you master your craft, according to the <a href="">guided practice principle</a>. By practicing meaningfully, and recording your results, you will see real improvement.</p>
+		{% crispy reg_form reg_form.helper %}
+	</div>
+</div>
+	
+{% endif %}
 {% endblock %}
