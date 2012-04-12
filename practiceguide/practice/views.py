@@ -5,7 +5,10 @@ from django.shortcuts import render_to_response, get_object_or_404,redirect
 from practice.models import Exercise, Session, Performance
 from django.template import RequestContext
 from practice.forms import *
+from user.forms import RegistrationForm
 
+
+    
 
 @login_required
 def exercises_index(request):
@@ -14,6 +17,10 @@ def exercises_index(request):
      'ex_list': ex_list,
   })
   return render_to_response('exercise.html', variables)
+
+def index(request):
+  reg_form = RegistrationForm()
+  return render_to_response('index.html', {'reg_form': reg_form}, context_instance=RequestContext(request))
 
 @login_required  
 def practice(request, id):
@@ -39,13 +46,8 @@ def practice(request, id):
     form = ExercisePracticeForm()
   variables = RequestContext(request, {'form': form})
   return render_to_response('ex_create.html',variables)
-    
-    
-def index(request):
-  params={}
-  variables = RequestContext(request, params)
-  return render_to_response ('index.html',variables)
 
+  
 @login_required
 def logout_view(request):
   logout(request)

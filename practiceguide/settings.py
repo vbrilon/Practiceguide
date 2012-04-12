@@ -122,6 +122,7 @@ INSTALLED_APPS = (
     'practice',
     'user',
     'django_gravatar',
+		'crispy_forms',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -152,3 +153,5 @@ LOGGING = {
 }
 
 LOGIN_URL="/login/"
+CRISPY_FAIL_SILENTLY = False
+CRISPY_TEMPLATE_PACK = 'bootstrap'

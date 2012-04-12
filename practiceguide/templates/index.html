@@ -1,48 +1,8 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
+
 {% block title %} Welcome to Practiceguide {% endblock %}
 
 {% block main %}
-	{% if user.username %}
-		<p>Welcome back, {{ user.username }}</p>
-		<a href="/logout/">Sign out. Now. :)</a><br>
-	{% else %}
-		<div class="row">
-			<div id="cta" class="hero-unit">
-				<h1>Practice with purpose.</h1>
-				<p>Practiceguide is built to help you master your craft, according to the <a href="">guided practice principle</a>. By practicing meaningfully, and recording your results, you will see real improvement.</p>
-			
-				<form class="form-horizontal">
-					<fieldset>
-						<legend id="enticement">Sign up today!</legend>
-						<div class="control-group">
-							<label class="control-label" for="fname">Name</label>
-							<div class="controls">
-								<input type="text" id="fname" name="fname" class="span2" placeholder="First">
-								<input type="text" id="lname" name="lname" class="span2" placeholder="Last">
-							</div>
-						</div>
-						<div class="control-group">
-							<label class="control-label" for="email">Email</label>
-							<div class="controls">
-								<input type="text" id="email" name="email" class="">
-							</div>
-						</div>
-						<div class="control-group">
-							<label class="control-label" for="password">Password</label>
-							<div class="controls">
-								<input type="password" id="password" name="password" class="">
-							</div>
-						</div>
-						<div class="control-group">
-							<label class="control-label" for="password_confirm">Confirm your password</label>
-							<div class="controls">
-								<input type="password" id="password_confirm" name="password_confirm" class="">
-							</div>
-						</div>
-					</fieldset>
-				</form>
-			</div>
-			
-		</div>
-	{% endif %}
+{% crispy reg_form reg_form.helper %}
 {% endblock %}
