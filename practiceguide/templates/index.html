@@ -2,8 +2,9 @@
 {% load crispy_forms_tags %}
 
 {% block title %} Welcome to Practiceguide {% endblock %}
-
+{% block script %}<script src="site_media/js/homepage.js"></script>{% endblock %}
 {% block main %}
+
 {% if user.username %}
 <p>Welcome back, {{ user.username }}</p>
 <a href="/logout/">Sign out. Now. :)</a><br>
@@ -17,4 +18,5 @@
 </div>
 	
 {% endif %}
+>>>>>>> 5eda33ed1e6bc759bc3cfd656a818a46b71f4bf0
 {% endblock %}
