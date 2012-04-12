@@ -20,7 +20,6 @@ def register_page(request):
       user.save()
       user2 = authenticate(username=form.cleaned_data['email'], password=form.cleaned_data['password1'])
       login(request, user2)
-      print "HERE"
       return HttpResponseRedirect('/register/success/')
     else:
       return render_to_response('index.html', {'reg_form': form}, context_instance=RequestContext(request))
