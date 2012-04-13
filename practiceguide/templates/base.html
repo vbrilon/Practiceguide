@@ -7,12 +7,12 @@
 	<link rel="stylesheet" href="/site_media/css/style.css" type="text/css">
 </head>
 <body>
-	<div id="masthead">
+	<div id="masthead" class="{% block masthead_class %}{% endblock %}">
 		<h1><a href="/">Practiceguide</a></h1>
 		{% if user.is_authenticated %}
 		<div id="signed_in_user_box">
 		  {% load gravatar %}
-		  {% gravatar user.email 40 %} {{user.username}} <span class="expander"></span>
+		  {% gravatar user.email 40 %} {{user.first_name}} <span class="expander"></span>
 		</div>
 		<nav id="primary_nav">
 			<ul>
@@ -23,7 +23,9 @@
 			</ul>
 		</nav>
 		{% else %}
-		
+		<div id="signed_in_user_box" class="no-signed-in-user">
+		  <a id="signin_link" href="/registration/login/">Sign in</a>
+		</div>
 		{% endif %}
 	</div>
 	<div role="main">

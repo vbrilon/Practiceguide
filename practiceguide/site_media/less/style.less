@@ -19,15 +19,30 @@ body {
 	color: @masthead-text;
 }
 
+#masthead.scroll {
+	position: relative;
+}
+
 #masthead h1 {
 	margin: 0;
 	width: 240px;
 	float: left;
+	padding: 8px 0 0 8px;
+	line-height: 20px;
 }
 
 #masthead a {
 	color: @masthead-nav-link;
 	text-decoration: none;
+}
+
+#signed_in_user_box {
+	padding: 8px 8px 0 0;
+	line-height: 32px;
+}
+
+#signed_in_user_box.no-signed-in-user {
+	text-align: right;
 }
 
 #signed_in_user_box {
@@ -37,6 +52,11 @@ body {
 
 #signed_in_user_box img {
 	
+}
+
+.asteriskField {
+	display: none;
+	visibility: hidden;
 }
 
 #primary_nav {
@@ -58,6 +78,10 @@ div[role=main] {
 	min-height: 540px;
 	min-width: 1000px;
 	margin-top: 90px;
+}
+
+#masthead.scroll+div[role=main] {
+	margin-top: 0;
 }
 
 #cta {
