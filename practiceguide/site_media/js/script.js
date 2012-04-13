@@ -5,6 +5,10 @@ $("document").ready(function() {
 	$('*[data-modal]').click(function(e) {
 		e.preventDefault();
 		var href = $(e.target).attr('href');
-		$('<iframe class="modal" src="' + href + '"></iframe>').modal('show').appendTo('body');
+		$('<iframe class="modal" src="' + href + '"></iframe>').modal({
+			backdrop: "static",
+			keyboard: true,
+			show: true
+		}).appendTo('body');
 	});
 });
