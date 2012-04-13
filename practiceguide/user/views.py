@@ -11,15 +11,16 @@ def register_page(request):
     form = RegistrationForm(request.POST)
     if form.is_valid():
       user = User.objects.create_user(
-        first_name = form.cleaned_data['first_name'],
-        last_name = form.cleaned_data['last_name'],
         username = form.cleaned_data['email'],
         password = form.cleaned_data['password1'],
         email = form.cleaned_data['email'],
        )
+      user.first_name = form.cleaned_data['first_name']
+      user.last_name = form.cleaned_data['last_name']
       user.save()
-      user2 = authenticate(email=form.cleaned_data['email'], password=form.cleaned_data['password1'])
+      user2 = authenticate(username=form.cleaned_data['email'], password=form.cleaned_data['password1'])
       login(request, user2)
       return HttpResponseRedirect('/register/success/')
-  else:
-    return render_to_response('index.html',variables)
+    else:
+      return render_to_response('index.html', {'reg_form': form}, context_instance=RequestContext(request))
+
