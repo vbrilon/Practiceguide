@@ -5,9 +5,8 @@ $("document").ready(function() {
 		if (href.indexOf('#') == 0) {
 			$(href).modal('show');
 		} else {
-			$.get(href, function(data) {
-				$('<div class="modal">' + data + '</div>').modal('show').appendTo('body');
-			});
+			$('<iframe class="modal" src="' + href + '"></iframe>').modal('show').appendTo('body');
+			
 		}
 	});
 });
