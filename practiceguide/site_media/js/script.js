@@ -1,4 +1,5 @@
 $("document").ready(function() {
+	/*
 	if( $("#signin_modal").length > 0 ) {
 		$("#signin_modal").modal({
 			keyboard: true
@@ -8,4 +9,5 @@ $("document").ready(function() {
 			$("#signin_modal").modal("show");
 		});
 	}
+	*/
 });
