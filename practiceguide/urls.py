@@ -22,4 +22,5 @@ urlpatterns = patterns('',
   url(r'^register/$', 'user.views.register_page'),
   url(r'^register/success/$', direct_to_template, {'template': 'registration/register_success.html'}),
   url(r'^exercise_create/success/$', direct_to_template, {'template': 'exercise_create_success.html'}),
+  url(r'^test/$', direct_to_template, {'template': 'exercise_create_success.html'}),
 )
