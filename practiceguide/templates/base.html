@@ -24,8 +24,7 @@
 		</nav>
 		{% else %}
 		<div id="signed_in_user_box" class="no-signed-in-user">
-			<a id="signin_link" data-target="#signin_modal" data-toggle="signin_modal" href="">Sign in</a>
-			<iframe class="modal" id="signin_modal" src="/login/"></iframe>
+			<a href="/login" data-modal="modal" id="signin_modal">Sign in</a>
 		</div>
 		{% endif %}
 	</div>
