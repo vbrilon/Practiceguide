@@ -1,31 +1,9 @@
 {% extends "modal_base.html"%}
-
-{% block script %}<script src="site_media/js/login.js"></script>{% endblock %}
+{% load crispy_forms_tags %}
+{% block script %}<script src="/site_media/js/login.js"></script>{% endblock %}
 
 {% block content %}
-<form class="form-horizontal" method="post" action="{% url django.contrib.auth.views.login %}">{% csrf_token %}
-	<fieldset>
-		<legend>Sign In</legend>
-		<div class="control-group{% if form.errors %} error{% endif %}">
-			<label class="control-label" for="email">Email</label>
-			<div class="controls">
-				<input type="text" name="email" id="email" class="input-large">
-				{% if form.errors %}
-				<span class="help-inline">Your password and email don't match our records.</span>
-				{% endif %}
-			</div>
-		</div>
-		<div class="control-group{% if form.errors %} error{% endif %}">
-			<label class="control-label" for="password">Password</label>
-			<div class="controls">
-				<input type="password" name="password" id="password" class="input-large">
-			</div>
-		</div>
-		<div class="form-actions">
-			<button type="submit" value="login" class="btn btn-primary">Sign in</button>
-			<input type="hidden" name="next" value="/#login" />
-			<a href="" style="margin-left: 30px">I forgot my password</a>
-		</div>
-	</fieldset>
-</form>
+
+{% crispy form %}
+
 {% endblock %}

@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.shortcuts import render_to_response, get_object_or_404,redirect
 from django.template import RequestContext
 from django.contrib.auth import login, authenticate
+from django.forms.util import ErrorList
+
 
 
 def register_page(request):
@@ -24,3 +26,19 @@ def register_page(request):
     else:
       return render_to_response('index.html', {'reg_form': form}, context_instance=RequestContext(request))
 
+
+def mylogin(request):
+  if request.method == 'POST':
+    form = LoginForm(request.POST)
+    if form.is_valid():
+      user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
+      if user is not None:
+        login(request, user)
+        return HttpResponseRedirect("/login/#login")
+      else:
+        return render_to_response('registration/login.html', {'form': form}, context_instance=RequestContext(request))
+    else:
+      return render_to_response('registration/login.html', {'form': form}, context_instance=RequestContext(request))
+  else:
+    form = LoginForm()
+    return render_to_response('registration/login.html', {'form': form}, context_instance=RequestContext(request))

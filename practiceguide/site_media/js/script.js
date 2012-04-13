@@ -1,4 +1,5 @@
 $("document").ready(function() {
+	alert(window.location);
 	if ((window.location.hash) && (window.location.hash.substring(1) == 'login')) {
 		window.parent.location = "/";
 	}
