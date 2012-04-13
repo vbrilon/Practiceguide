@@ -24,7 +24,8 @@
 		</nav>
 		{% else %}
 		<div id="signed_in_user_box" class="no-signed-in-user">
-		  <a id="signin_link" href="/registration/login/">Sign in</a>
+			<a id="signin_link" href="/registration/login/">Sign in</a>
+			<div id="signin_modal"></div>
 		</div>
 		{% endif %}
 	</div>
@@ -44,6 +45,7 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="site_media/js/jquery-1.7.1.min.js"><\/script>')</script>
 	<script src="site_media/js/script.js"></script>
+	<script src="site_media/js/bootstrap.js"></script>
 	{% block script %} {% endblock %}
 </body>
 </html>
