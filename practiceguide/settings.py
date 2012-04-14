@@ -91,7 +91,7 @@ SECRET_KEY = ')kc8^tli=eyx)o2gn5ux_&u(^fpu$k=cg$031qbq&uq3)-(&_%'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -124,6 +124,8 @@ INSTALLED_APPS = (
     'django_gravatar',
 		'crispy_forms',
     'taggit',
+		'dajaxice',
+		'dajax',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -157,3 +159,6 @@ CRISPY_FAIL_SILENTLY = False
 CRISPY_TEMPLATE_PACK = 'bootstrap'
 TAGGIT_FORCE_LOWERCASE = True
 TAGGIT_STOPWORDS = [u'a', u'an', u'and', u'be', u'from', u'of']
+DAJAXICE_MEDIA_PREFIX="dajaxice"
+
+
