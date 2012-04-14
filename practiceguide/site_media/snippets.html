@@ -1,0 +1,52 @@
+<!-- Create New Exercise Button -->
+<div id="create_new_exercise" class="exercise-card exercise-card-small ghost-button">
+	<a id="create_new_exercise_button" href="">
+		<img src="/site_media/img/create_exercise_icon.png"><br>
+		<span>Create a new exercise</span>
+	</a>
+</div>
+
+<!-- Large Edit Exercise Card -->
+<div id="exercise_001" class="exercise-card edit-view exercise-card-large">
+	<div class="exercise-definition clearfix">
+		<div class="exercise-data-block">
+			<div class="exercise-title">
+				<input type="text" placeholder="Exercise Title (required)" maxlength="72" id="edit_exercise_title" autosave="true" error="err:Exercise title is required.">
+			</div>
+			<div class="exercise-description">
+				<textarea placeholder="Exercise Description" id="edit_exercise_description" autosave="true"></textarea>
+			</div>
+			<div class="exercise-tags">
+				<div class="tagcloud"></div>
+				<textarea placeholder="Use commas to separate tags" id="edit_exercise_tags" autosave="true" error="err:Only numbers and letters are allowed in tags."></textarea>
+			</div>
+			<div class="exercise-instructions">
+				<textarea placeholder="Instructions" id="edit_exercise_instructions" autosave="true"></textarea>
+			</div>
+		</div>
+		<div class="exercise-media-block">
+			<div class="media-url-input">
+				<input type="text" placeholder="Paste a URL here" id="edit_media_url" autosave="true">
+				<label>Image or video from the web</label>
+			</div>
+			<div class="media-upload-input">
+				<div class="dropzone"><span>Drag files from your computer here to upload them</span></div>
+			</div>
+			<div class="media-list">
+		
+			</div>
+		</div>
+	</div>
+	<div class="exercise-metacontrol-block clearfix">
+		<div class="button-column">
+			<button class="play-exercise-button btn btn-inverse btn-large">Play it now</button>
+			<button class="delete-exercise-button btn btn-large">Delete</button>
+		</div>
+		<div class="save-status-block">
+			Your exercise will save automatically.
+		</div>
+		<div class="minimize-exercise-block">
+			<a class="minimizer" href=""></a>
+		</div>
+	</div>
+</div>
