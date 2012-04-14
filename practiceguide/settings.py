@@ -123,6 +123,7 @@ INSTALLED_APPS = (
     'user',
     'django_gravatar',
 		'crispy_forms',
+    'taggit',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -152,6 +153,7 @@ LOGGING = {
     }
 }
 
-LOGIN_URL="/login/"
 CRISPY_FAIL_SILENTLY = False
 CRISPY_TEMPLATE_PACK = 'bootstrap'
+TAGGIT_FORCE_LOWERCASE = True
+TAGGIT_STOPWORDS = [u'a', u'an', u'and', u'be', u'from', u'of']
