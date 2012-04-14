@@ -10,22 +10,22 @@
 		<div class="exercise-definition clearfix">
 			<div class="exercise-data-block">
 				<div class="exercise-title">
-					<input type="text" placeholder="Exercise Title (required)" maxlength="72">
+					<input type="text" placeholder="Exercise Title (required)" maxlength="72" id="exercise_title_{{ exercise.id }}" autosave="true">
 				</div>
 				<div class="exercise-description">
-					<textarea placeholder="Exercise Description"></textarea>
+					<textarea placeholder="Exercise Description" id="exercise_description_{{ exercise.id }}" autosave="true"></textarea>
 				</div>
 				<div class="exercise-tags">
 					<div class="tagcloud"></div>
-					<textarea placeholder="Use commas to separate tags"></textarea>
+					<textarea placeholder="Use commas to separate tags" id="exercise_tags_{{ exercise.id }}" autosave="true"></textarea>
 				</div>
 				<div class="exercise-instructions">
-					<textarea placeholder="Instructions"></textarea>
+					<textarea placeholder="Instructions" id="exercise_instructions_{{ exercise.id }}" autosave="true"></textarea>
 				</div>
 			</div>
 			<div class="exercise-media-block">
 				<div class="media-url-input">
-					<input type="text" placeholder="Paste a URL here">
+					<input type="text" placeholder="Paste a URL here" id="media_url_{{ exercise.id }}" autosave="true">
 					<label>Image or video from the web</label>
 				</div>
 				<div class="media-upload-input">
