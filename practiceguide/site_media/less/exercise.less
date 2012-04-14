@@ -1,6 +1,7 @@
 @near-white: #fcfcfc;
 @light-gray: #d5d5d5;
 @mid-gray: #666;
+@error: #fb0600;
 
 @card-background: @near-white;
 
@@ -40,6 +41,10 @@
 }
 
 .edit-view {
+	.exercise-title {
+		position: relative;
+	}
+	
 	.exercise-title input[type=text] {
 		font-size: 24px;
 		height: 40px;
@@ -79,6 +84,24 @@
 		color: @mid-gray;
 		font-size: 15px;
 		margin-bottom: 9px;
+	}
+
+	input[error^="err:"][type="text"],
+	textarea[error^="err:"] {
+		border: 1px solid @error;
+	}
+	
+	.error-message {
+		background-color: @error;
+		border-bottom-left-radius: 3px;
+		border-bottom-right-radius: 3px;
+		color: @near-white;
+		position: relative;
+		top: -9px;
+		left: 8px;
+		padding: 2px 6px;
+		display: inline-block;
+		max-width: @exercise-input-width - 20px;
 	}
 }
 
