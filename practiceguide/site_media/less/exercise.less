@@ -3,7 +3,8 @@
 
 @card-background: @near-white;
 
-@edit-input-width: 350px;
+@exercise-input-width: 350px;
+@media-input-width: 350px;
 
 .exercise-card {
 	
@@ -31,24 +32,56 @@
 	.exercise-title input[type=text] {
 		font-size: 30px;
 		height: 40px;
-		width: @edit-input-width;
+		width: @exercise-input-width;
 		line-height: 30px;
 	}
 	
 	.exercise-description textarea {
-		width: @edit-input-width;
+		width: @exercise-input-width;
 		height: 80px;
 	}
 	
 	.exercise-tags textarea {
-		width: @edit-input-width - 50px;
+		width: @exercise-input-width;
 		height: 40px;
 	}
 	
-	.exercise-tags button {
-		vertical-align: middle;
-		height: 50px;
-		width: 50px;
+	.exercise-tags .tagcloud {
+		width: @exercise-input-width;
+		min-height: 24px;
+		padding: 5px;
+		margin-bottom: 9px;
+	}
+	
+	.exercise-instructions textarea {
+		width: @exercise-input-width;
+		height: 80px;
+		margin-bottom: 0;
+	}
+	
+	.media-url-input input[type=text] {
+		width: @media-input-width;
 	}
 }
 
+.exercise-metacontrol-block {
+	border-top: 1px solid @light-gray;
+	margin-top: 9px;
+	padding-top: 9px;
+	padding-bottom: 2px;
+}
+
+.exercise-metacontrol-block {
+	.button-column {
+		float: left;
+		margin-right: 20px;
+	}
+	
+	.save-status-block {
+		float: left;
+	}
+	
+	.minimize-exercise-block {
+		float: right;
+	}
+}
