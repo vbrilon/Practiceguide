@@ -1,0 +1,150 @@
+@near-white: #fcfcfc;
+@light-gray: #d5d5d5;
+@mid-gray: #666;
+@error: #fb0600;
+
+@card-background: @near-white;
+
+@exercise-input-width: 300px;
+@media-input-width: 420px;
+
+.content-box {
+	box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+}
+
+#exercise_wall {
+	padding: 4px;
+}
+
+.exercise-card {
+	margin: 4px;
+}
+
+.exercise-card-large {
+	border: 1px solid @light-gray;
+	border-radius:			11px;
+	-webkit-border-radius:	11px;
+	-moz-border-radius:		11px;
+	width: 750px;
+	padding: 6px;
+	background: @card-background;
+}
+
+.exercise-data-block {
+	float: left;
+}
+
+.exercise-media-block {
+	float: right;
+}
+
+.edit-view {
+	.exercise-title {
+		position: relative;
+	}
+	
+	.exercise-title input[type=text] {
+		font-size: 24px;
+		height: 40px;
+		width: @exercise-input-width;
+		line-height: 24px;
+	}
+	
+	.exercise-description textarea {
+		width: @exercise-input-width;
+		height: 80px;
+	}
+	
+	.exercise-tags textarea {
+		width: @exercise-input-width;
+		height: 40px;
+	}
+	
+	.exercise-tags .tagcloud {
+		width: @exercise-input-width;
+		min-height: 24px;
+		padding: 5px;
+		margin-bottom: 9px;
+	}
+	
+	.exercise-instructions textarea {
+		width: @exercise-input-width;
+		height: 80px;
+		margin-bottom: 0;
+	}
+	
+	.media-url-input input[type=text] {
+		width: @media-input-width;
+		margin-bottom: 2px;
+	}
+	
+	.media-url-input label {
+		color: @mid-gray;
+		font-size: 15px;
+		margin-bottom: 9px;
+	}
+
+	input[error^="err:"][type="text"],
+	textarea[error^="err:"] {
+		border: 1px solid @error;
+	}
+	
+	.error-message {
+		background-color: @error;
+		border-bottom-left-radius: 3px;
+		border-bottom-right-radius: 3px;
+		color: @near-white;
+		position: relative;
+		top: -9px;
+		left: 8px;
+		padding: 2px 6px;
+		display: inline-block;
+		max-width: @exercise-input-width - 20px;
+	}
+}
+
+.exercise-metacontrol-block {
+	border-top: 1px solid @light-gray;
+	margin-top: 9px;
+	padding-top: 9px;
+	padding-bottom: 2px;
+}
+
+.dropzone {
+	width: @media-input-width - 34px;
+	border: 2px dashed @light-gray;
+	height: 50px;
+	border-radius:			11px;
+	-webkit-border-radius:	11px;
+	-moz-border-radius:		11px;
+	text-align: center;
+	.content-box;
+	padding: 20px;
+	color: @light-gray;
+	font-size: 20px;
+	line-height: 24px;
+}
+
+.minimizer {
+	background: url("../img/close-icon.png");
+	height: 44px;
+	width: 44px;
+	display: inline-block;
+}
+
+.exercise-metacontrol-block {
+	.button-column {
+		float: left;
+		margin-right: 20px;
+	}
+	
+	.save-status-block {
+		float: left;
+	}
+	
+	.minimize-exercise-block {
+		float: right;
+	}
+}
