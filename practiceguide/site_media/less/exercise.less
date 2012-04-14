@@ -1,13 +1,24 @@
 @near-white: #fcfcfc;
 @light-gray: #d5d5d5;
+@mid-gray: #666;
 
 @card-background: @near-white;
 
-@exercise-input-width: 350px;
-@media-input-width: 350px;
+@exercise-input-width: 300px;
+@media-input-width: 420px;
+
+.content-box {
+	box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+}
+
+#exercise_wall {
+	padding: 4px;
+}
 
 .exercise-card {
-	
+	margin: 4px;
 }
 
 .exercise-card-large {
@@ -30,10 +41,10 @@
 
 .edit-view {
 	.exercise-title input[type=text] {
-		font-size: 30px;
+		font-size: 24px;
 		height: 40px;
 		width: @exercise-input-width;
-		line-height: 30px;
+		line-height: 24px;
 	}
 	
 	.exercise-description textarea {
@@ -61,6 +72,13 @@
 	
 	.media-url-input input[type=text] {
 		width: @media-input-width;
+		margin-bottom: 2px;
+	}
+	
+	.media-url-input label {
+		color: @mid-gray;
+		font-size: 15px;
+		margin-bottom: 9px;
 	}
 }
 
@@ -69,6 +87,28 @@
 	margin-top: 9px;
 	padding-top: 9px;
 	padding-bottom: 2px;
+}
+
+.dropzone {
+	width: @media-input-width - 34px;
+	border: 2px dashed @light-gray;
+	height: 50px;
+	border-radius:			11px;
+	-webkit-border-radius:	11px;
+	-moz-border-radius:		11px;
+	text-align: center;
+	.content-box;
+	padding: 20px;
+	color: @light-gray;
+	font-size: 20px;
+	line-height: 24px;
+}
+
+.minimizer {
+	background: url("../img/close-icon.png");
+	height: 44px;
+	width: 44px;
+	display: inline-block;
 }
 
 .exercise-metacontrol-block {
