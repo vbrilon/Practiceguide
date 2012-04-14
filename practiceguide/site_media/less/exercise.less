@@ -1,0 +1,54 @@
+@near-white: #fcfcfc;
+@light-gray: #d5d5d5;
+
+@card-background: @near-white;
+
+@edit-input-width: 350px;
+
+.exercise-card {
+	
+}
+
+.exercise-card-large {
+	border: 1px solid @light-gray;
+	border-radius:			11px;
+	-webkit-border-radius:	11px;
+	-moz-border-radius:		11px;
+	width: 750px;
+	padding: 6px;
+	background: @card-background;
+}
+
+.exercise-data-block {
+	float: left;
+}
+
+.exercise-media-block {
+	float: right;
+}
+
+.edit-view {
+	.exercise-title input[type=text] {
+		font-size: 30px;
+		height: 40px;
+		width: @edit-input-width;
+		line-height: 30px;
+	}
+	
+	.exercise-description textarea {
+		width: @edit-input-width;
+		height: 80px;
+	}
+	
+	.exercise-tags textarea {
+		width: @edit-input-width - 50px;
+		height: 40px;
+	}
+	
+	.exercise-tags button {
+		vertical-align: middle;
+		height: 50px;
+		width: 50px;
+	}
+}
+

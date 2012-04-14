@@ -1,10 +1,11 @@
 <!doctype html>
 <html>
 <head>
-	<title>Practiceguide | {% block title %} {% endblock %}</title>
+	<title>Practiceguide | {% block title %}{% endblock %}</title>
 	<link rel="stylesheet" href="/site_media/css/bootstrap-responsive.min.css" type="text/css">
 	<link rel="stylesheet" href="/site_media/css/bootstrap.min.css" type="text/css">
 	<link rel="stylesheet" href="/site_media/css/style.css" type="text/css">
+	{% block style %}{% endblock %}
 </head>
 <body>
 	<div id="masthead" class="{% block masthead_class %}{% endblock %}">
@@ -43,9 +44,9 @@
 	</footer>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="site_media/js/jquery-1.7.1.min.js"><\/script>')</script>
-	<script src="site_media/js/bootstrap.js"></script>
-	<script src="site_media/js/script.js"></script>
-	{% block script %} {% endblock %}
+	<script src="/site_media/js/bootstrap.js"></script>
+	<script src="/site_media/js/script.js"></script>
+	{% block script %}{% endblock %}
 </body>
 </html>
 
