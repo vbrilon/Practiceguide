@@ -22,3 +22,4 @@ class Command(BaseCommand):
     user.first_name = 'John'
     user.last_name = 'Petrucci'
     user.save()
+    print "You can now log in with user:a@a.com, password:a"
