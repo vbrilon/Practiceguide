@@ -1,10 +1,12 @@
 {% extends "base.html" %}
+{% load widget_tweaks %}
 
 {% block title %}Exercises{% endblock %}
 {% block style %}<link rel="stylesheet" href="/site_media/css/exercise.css" type="text/css">{% endblock %}
 {% block script %}
 <script src="/site_media/js/jquery.dajax.core.js" type="text/javascript" charset="utf-8"></script>
 <script src="/site_media/js/exercise.js"></script>
+<script src="/site_media/js/autosave.js"></script>
 {% endblock %}
 
 {% block main %}
@@ -13,17 +15,17 @@
 		<div class="exercise-definition clearfix">
 			<div class="exercise-data-block">
 				<div class="exercise-title">
-					{{ form.title }}
+					{{ form.title|attr:"autosave:true" }}
 				</div>
 				<div class="exercise-description">
-					{{ form.description }}
+					{{ form.description|attr:"autosave:true" }}
 				</div>
 				<div class="exercise-tags">
 					<div class="tagcloud"></div>
-					{{ form.tags}}
+					{{ form.tags|attr:"autosave:true"}}
 				</div>
 				<div class="exercise-instructions">
-					{{ form.instructions }}
+					{{ form.instructions|attr:"autosave:true" }}
 				</div>
 			</div>
 			<div class="exercise-media-block">
