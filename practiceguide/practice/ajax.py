@@ -5,6 +5,7 @@ from dajax.core.Dajax import Dajax
 from dajaxice.decorators import dajaxice_register
 from practice.models import Exercise
 import datetime
+import re
 
 dajaxice_autodiscover() 
 @dajaxice_register
@@ -18,7 +19,16 @@ def exedit(request, key, val):
   except Exercise.DoesNotExist:
     print "ERROR -- Exercise not found in ajax.py"
     print "DEBUG {}".format(request.session['current_exercise'])
-  setattr(ex, key, val)
+  if key == 'tags':
+    tags = (val.split(','))
+    # kill whitespace
+    tags = [n.strip() for n in tags]
+    # kill empty entries
+    tags = filter(lambda x: not re.match(r'^\s*$', x), tags)
+    print "TAGS ARE: %s" % tags
+    ex.tags.add(*tags)
+  else:
+    setattr(ex, key, val)
   ex.last_updated = datetime.datetime.now
   ex.save()
   dajax = Dajax()
