@@ -13,6 +13,7 @@ site_media = os.path.join(os.path.dirname(__file__), 'site_media')
 urlpatterns = patterns('',
   url(r'^$', 'practice.views.index'),
   url(r'^create_exercise/$', 'practice.views.edit_exercise'),
+  url(r'^edit_exercise/(?P<ex>\d+)$', 'practice.views.edit_exercise'),
  # url(r'^schedule/$', 'practice.views.schedule'),
   url(r'^practice/$', 'practice.views.exercises_index'),
  # url(r'^review/$', 'practice.views.review'),
