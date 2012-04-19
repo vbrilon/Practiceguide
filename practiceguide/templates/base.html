@@ -1,10 +1,12 @@
 <!doctype html>
 <html>
+{% load dajaxice_templatetags %}
 <head>
 	<title>Practiceguide | {% block title %}{% endblock %}</title>
 	<link rel="stylesheet" href="/site_media/css/bootstrap-responsive.min.css" type="text/css">
 	<link rel="stylesheet" href="/site_media/css/bootstrap.min.css" type="text/css">
 	<link rel="stylesheet" href="/site_media/css/style.css" type="text/css">
+	{% dajaxice_js_import %}
 	{% block style %}{% endblock %}
 </head>
 <body>

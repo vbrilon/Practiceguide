@@ -6,10 +6,22 @@ from practice.models import Exercise, Session, Performance
 from django.template import RequestContext
 from practice.forms import *
 from user.forms import RegistrationForm
+from dajax.core.Dajax import Dajax
+from dajaxice.decorators import dajaxice_register
+import logging
 
-
-    
-
+def edit_exercise(request):
+  if request.method == 'GET':
+    template = 'exercise/base_view.html'
+    return render_to_response(template, request)
+  elif request.method == 'POST':
+    print "I AM BEING CALLED"
+    dajax = Dajax()
+    dajax.assign('#result','value', "HELLO WORLD")
+    return dajax.json()
+  else:
+    print "How am I here?"
+  
 @login_required
 def exercises_index(request):
   ex_list = Exercise.objects.filter(user=request.user)
@@ -54,20 +66,19 @@ def logout_view(request):
   return HttpResponseRedirect('/')
 
 @login_required
-def create_exercise(request):
-  if request.method == 'POST':
-    form = ExerciseCreateForm(request.POST)
-    if form.is_valid():
-      ex = Exercise(
-        title = form.cleaned_data['title'],
-        description = form.cleaned_data['description'],
-        user = request.user
-       )
-      ex.save()
-      return HttpResponseRedirect('/exercise_create/success/')
+def edit_exercise(request, ex=None):
+  if ex is None:
+    ex = Exercise(
+      title = "No Title",
+      description = "No Description",
+      user = request.user
+    )
+    ex.save()
   else:
-    form = ExerciseCreateForm()
+    ex = get_object_or_404(Exercise, pk=ex)
+  form = ExerciseCreateModelForm(instance = ex)
+  request.session['current_exercise'] = ex.id
   variables = RequestContext(request, {'form': form})
-  return render_to_response('ex_create.html',variables)
+  return render_to_response('exercise/base_view.html',variables)
   
       

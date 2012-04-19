@@ -119,13 +119,14 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+		'dajaxice',
     'practice',
     'user',
     'django_gravatar',
 		'crispy_forms',
     'taggit',
-		'dajaxice',
 		'dajax',
+		'widget_tweaks',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -154,11 +155,30 @@ LOGGING = {
         },
     }
 }
+TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
+                               "django.core.context_processors.debug",
+                               "django.core.context_processors.i18n",
+                               "django.core.context_processors.media",
+                               "django.core.context_processors.static",
+                               "django.core.context_processors.request",
+                               "django.contrib.messages.context_processors.messages")
 
+
+LOGIN_URL = "/"
 CRISPY_FAIL_SILENTLY = False
 CRISPY_TEMPLATE_PACK = 'bootstrap'
 TAGGIT_FORCE_LOWERCASE = True
 TAGGIT_STOPWORDS = [u'a', u'an', u'and', u'be', u'from', u'of']
 DAJAXICE_MEDIA_PREFIX="dajaxice"
+DAJAXICE_DEBUG = True
+DAJAXICE_JS_DOCSTRINGS = True
+DAJAXICE_NOTIFY_EXCEPTIONS = True
 
-
+#import logging 
+#import logging.config 
+#logger = logging.getLogger('dajaxice') 
+#logger.setLevel(logging.DEBUG) 
+#hdlr = logging.FileHandler('practice.log') 
+#formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s') 
+#hdlr.setFormatter(formatter) 
+#logger.addHandler(hdlr) 

@@ -12,7 +12,7 @@ site_media = os.path.join(os.path.dirname(__file__), 'site_media')
 
 urlpatterns = patterns('',
   url(r'^$', 'practice.views.index'),
-  url(r'^create_exercise/$', 'practice.views.create_exercise'),
+  url(r'^create_exercise/$', 'practice.views.edit_exercise'),
  # url(r'^schedule/$', 'practice.views.schedule'),
   url(r'^practice/$', 'practice.views.exercises_index'),
  # url(r'^review/$', 'practice.views.review'),
@@ -25,6 +25,6 @@ urlpatterns = patterns('',
   url(r'^register/$', 'user.views.register_page'),
   url(r'^register/success/$', direct_to_template, {'template': 'registration/register_success.html'}),
   url(r'^exercise_create/success/$', direct_to_template, {'template': 'exercise_create_success.html'}),
-  url(r'^test/$', direct_to_template, {'template': 'exercise/base_view.html'}),
   url(r'^%s/' % settings.DAJAXICE_MEDIA_PREFIX, include('dajaxice.urls')),
+  url(r'^test/$', direct_to_template, {'template': 'exercise/base_view.html'}),
 )

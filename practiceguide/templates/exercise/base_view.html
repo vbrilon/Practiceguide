@@ -2,7 +2,10 @@
 
 {% block title %}Exercises{% endblock %}
 {% block style %}<link rel="stylesheet" href="/site_media/css/exercise.css" type="text/css">{% endblock %}
-{% block script %}<script src="/site_media/js/exercise.js"></script>{% endblock %}
+{% block script %}
+<script src="/site_media/js/jquery.dajax.core.js" type="text/javascript" charset="utf-8"></script>
+<script src="/site_media/js/exercise.js"></script>
+{% endblock %}
 
 {% block main %}
 <div id="exercise_wall">
@@ -10,23 +13,22 @@
 		<div class="exercise-definition clearfix">
 			<div class="exercise-data-block">
 				<div class="exercise-title">
-					<input type="text" placeholder="Exercise Title (required)" maxlength="72" id="exercise_title_{{ exercise.id }}" autosave="true">
+					{{ form.title }}
 				</div>
 				<div class="exercise-description">
-					<textarea placeholder="Exercise Description" id="exercise_description_{{ exercise.id }}" autosave="true"></textarea>
+					{{ form.description }}
 				</div>
 				<div class="exercise-tags">
 					<div class="tagcloud"></div>
-					<textarea placeholder="Use commas to separate tags" id="exercise_tags_{{ exercise.id }}" autosave="true"></textarea>
+					{{ form.tags}}
 				</div>
 				<div class="exercise-instructions">
-					<textarea placeholder="Instructions" id="exercise_instructions_{{ exercise.id }}" autosave="true"></textarea>
+					{{ form.instructions }}
 				</div>
 			</div>
 			<div class="exercise-media-block">
 				<div class="media-url-input">
-					<input type="text" placeholder="Paste a URL here" id="media_url_{{ exercise.id }}" autosave="true">
-					<label>Image or video from the web</label>
+					{{ form.media }}
 				</div>
 				<div class="media-upload-input">
 					<div class="dropzone"><span>Drag files from your computer here to upload them</span></div>
