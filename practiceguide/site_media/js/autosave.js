@@ -6,7 +6,7 @@ $("document").ready(function() {
 
 function send_ajax(obj) {
 	$.autoSave.saving[ obj ] = true;
-	Dajaxice.practice.myedit(my_callback, {'id':obj.id, 'val':obj.value} );
+	Dajaxice.practice.exedit(my_callback, {'key':obj.id, 'val':obj.value} );
 	$.autoSave._oldObjString[ obj.name ] =  obj.value; 
 	//if ( typeof callback == 'function' ) callback( eval( obj ) );
 	$.autoSave.saving[ obj ] = false;
