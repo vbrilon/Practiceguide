@@ -174,11 +174,11 @@ DAJAXICE_DEBUG = True
 DAJAXICE_JS_DOCSTRINGS = True
 DAJAXICE_NOTIFY_EXCEPTIONS = True
 
-#import logging 
-#import logging.config 
-#logger = logging.getLogger('dajaxice') 
-#logger.setLevel(logging.DEBUG) 
-#hdlr = logging.FileHandler('practice.log') 
-#formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s') 
-#hdlr.setFormatter(formatter) 
-#logger.addHandler(hdlr) 
+import logging 
+import logging.config 
+logger = logging.getLogger('dajaxice') 
+logger.setLevel(logging.DEBUG) 
+hdlr = logging.FileHandler('practice.log') 
+formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s') 
+hdlr.setFormatter(formatter) 
+logger.addHandler(hdlr) 

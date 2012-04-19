@@ -2,7 +2,9 @@ var inputs;
 
 $("document").ready(function() { 
 	inputs = $('[autosave="true"]') ;
+	Dajaxice.setup({'default_exception_callback': function(){ console.log('Error!'); }});
 });
+
 
 function send_ajax(obj) {
 	$.autoSave.saving[ obj ] = true;
@@ -13,7 +15,9 @@ function send_ajax(obj) {
 }
 
 function my_callback(data){
-	//alert("Got: " + data);
+    if (data==Dajaxice.EXCEPTION){
+       alert('Error! Something happens!' + data);
+     }
 } 
 
 (function($) {	

@@ -25,8 +25,8 @@ class Exercise(models.Model):
   tags = TaggableManager()
   instructions = models.CharField(max_length=1024)
   media = models.ManyToManyField(Media)
-  created_date = models.DateTimeField(default=datetime.datetime.now)
-  last_updated = models.DateTimeField(default=datetime.datetime.now)
+  created_date = models.DateTimeField(auto_now_add=True)
+  last_updated = models.DateTimeField(auto_now=True)
   class Meta:
     ordering = ['title']    
     def __str__(self):
