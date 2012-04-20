@@ -1,12 +1,50 @@
+//grayscale
+@white: #fff;
 @near-white: #fcfcfc;
 @light-gray: #d5d5d5;
 @mid-gray: #666;
+
 @error: #fb0600;
+
+@brand-green: #81b72e;
 
 @card-background: @near-white;
 
 @exercise-input-width: 300px;
 @media-input-width: 420px;
+
+@exercise-border: 1px solid @light-gray;
+
+@exercise-rule: @exercise-border;
+
+//border rounding for content
+@border-radius: 11px;
+
+@tag-border: 1px solid @mid-gray;
+@tag-background: @light-gray;
+
+.top-rounded-big {
+	border-top-right-radius:			@border-radius;
+	border-top-left-radius:				@border-radius;
+	-webkit-border-top-right-radius:	@border-radius;
+	-webkit-border-top-left-radius:		@border-radius;
+	-moz-border-top-right-radius:		@border-radius;
+	-moz-border-top-left-radius:		@border-radius;
+}
+
+.bottom-rounded-big {
+	border-bottom-right-radius:			@border-radius;
+	border-bottom-left-radius:			@border-radius;
+	-webkit-border-bottom-right-radius:	@border-radius;
+	-webkit-border-bottom-left-radius:	@border-radius;
+	-moz-border-bottom-right-radius:	@border-radius;
+	-moz-border-bottom-left-radius:		@border-radius;
+}
+
+.rounded-big {
+	.top-rounded-big;
+	.bottom-rounded-big;
+}
 
 .content-box {
 	box-sizing: content-box;
@@ -21,9 +59,7 @@
 .exercise-card {
 	margin: 4px;
 	width: 250px;
-	border-radius:			11px;
-	-webkit-border-radius:	11px;
-	-moz-border-radius:		11px;
+	.rounded-big;
 	padding: 6px;
 }
 
@@ -48,10 +84,42 @@
 }
 
 .exercise-card-large {
-	border: 1px solid @light-gray;
+	border: @exercise-border;
 	width: 750px;
 	background: @card-background;
 }
+
+.exercise-card-small {
+	border: @exercise-border;
+	width: 250px;
+	background: @card-background;
+	min-height: 80px;
+	
+	h3 {
+		font-size: 20px;
+		color: @mid-gray;
+		border-bottom: @exercise-rule;
+	}
+	
+	.tagcloud {
+		margin: 6px 0;
+		.tag {
+			border: @tag-border;
+			background: @tag-background;
+			font-size: 13px;
+			color: @mid-gray;
+			padding: 1px 3px 2px 3px;
+			margin: 0 2px 2px 0;
+			display: inline-block;
+		}
+		
+		.tag:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+
 
 .exercise-data-block {
 	float: left;
@@ -127,7 +195,7 @@
 }
 
 .exercise-metacontrol-block {
-	border-top: 1px solid @light-gray;
+	border-top: @exercise-rule;
 	margin-top: 9px;
 	padding-top: 9px;
 	padding-bottom: 2px;
@@ -163,6 +231,35 @@
 	
 	.save-status-block {
 		float: left;
+		font-size: 20px;
+		color: @mid-gray;
+		width: 200px;
+		padding: 4px;
+		margin-left: 80px;
+		vertical-align: middle;
+		min-height: 40px;
+	}
+	
+	.exercise-save-in-progress {
+		position: relative;
+		color: lighten(@mid-gray, 30%);
+	}
+	
+	.exercise-save-in-progress:before {
+		content: url("../img/throbber40x40.gif");
+		position: absolute;
+		left: -44px;
+		top: 0;
+	}
+	
+	.exercise-saved {
+		color: lighten(@mid-gray, 30%);
+		font-size: 16px;
+	}
+	
+	.exercise-saved:first-line {
+		color: @brand-green;
+		font-size: 20px;
 	}
 	
 	.minimize-exercise-block {
