@@ -3,4 +3,10 @@ $("document").ready(function() {
 	$('.edit-view [error^="err:"]').each( function(index) {
 		$(this).after('<br><span class="error-message">' + $(this).attr('error').substring(4) + '</span>');
 	});
+	$('.edit-view .tag-close').each( function(index) {
+		$(this).click( function(event) {	
+			event.preventDefault();
+			$(this).parent().remove() 
+		});
+	});
 });

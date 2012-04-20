@@ -10,6 +10,7 @@ $("document").ready(function() {
 });
 
 function send_ajax(obj) {
+//	console.debug("GOT: " + obj.id);	
 	virgin.addClass('hidden'); saving.removeClass('hidden'); saved.addClass('hidden');
 	$.autoSave.saving[ obj ] = true;
 	var val;
@@ -18,7 +19,6 @@ function send_ajax(obj) {
 		$('.edit-view .tagcloud .tag').each(function() { temp.push($(this).text()) });
 		temp.push(obj.value);
 		val = temp.join(',');
-//		console.debug("GOT: " + val);	
 	}
 	else { val = obj.value}
 	Dajaxice.practice.exedit(my_callback, {'key':obj.id, 'val':val} );
@@ -49,7 +49,8 @@ function my_callback(data){
 		// loop through each autoSave obj, detect changes and save if so - through closures of $.each()
 		$.each(inputs, function (index, obj) {
 			// only if the object has changed value in any way - this is a semi-expensive operation
-			if ( obj.value.length > 0 &&  obj.value != $.autoSave._oldObjString[ obj.name ] && !$.autoSave.saving[ obj ] ) {	
+			if ( obj.value.length > 0 &&  obj.value != $.autoSave._oldObjString[ obj.name ] && !$.autoSave.saving[ obj ] ) {
+				//console.debug(obj.value + "--" + $.autoSave._oldObjString[ obj.name ] );	
 				send_ajax(obj);
 				
 			}
