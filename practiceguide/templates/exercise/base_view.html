@@ -59,19 +59,15 @@
 				<button class="play-exercise-button btn btn-inverse btn-large">Play it now</button>
 				<button class="delete-exercise-button btn btn-large">Delete</button>
 			</div>
-			{% if 1 == 2 %}
 			<div class="save-status-block">
 				Your exercise will save automatically.
 			</div>
-			{% elif 1 == 1 %}
-			<div class="save-status-block exercise-save-in-progress">
+			<div class="save-status-block exercise-save-in-progress hidden">
 				Saving...
 			</div>
-			{% else %}
-			<div class="save-status-block exercise-saved">
+			<div class="save-status-block exercise-saved hidden">
 				Saved <br>at 00:00PM today
 			</div>
-			{% endif %}
 			<div class="minimize-exercise-block">
 				<a class="minimizer" href=""></a>
 			</div>
