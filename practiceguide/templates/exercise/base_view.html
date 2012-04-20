@@ -31,8 +31,12 @@
 					{{ form.description|attr:"autosave:true" }}
 				</div>
 				<div class="exercise-tags">
-					<div class="tagcloud"></div>
-					{{ form.tags|attr:"autosave:true"}}
+					<div class="tagcloud"> 
+						{% for tag in tags %}
+						<span class="tag"><a class="tag-close"></a>{{ tag }}</span>
+						{% endfor %}
+					 </div>
+					 <textarea id="id_tags" rows="10" cols="40" autosave="true" name="tags"></textarea>
 				</div>
 				<div class="exercise-instructions">
 					{{ form.instructions|attr:"autosave:true" }}
