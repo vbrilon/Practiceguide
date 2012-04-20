@@ -33,12 +33,11 @@
 					{{ form.description|attr:"autosave:true" }}
 				</div>
 				<div class="exercise-tags">
-					<div class="tagcloud"> 
-						{% for tag in tags %}
-						<span class="tag"><a class="tag-close" href=""></a>{{ tag }}</span>
-						{% endfor %}
-					 </div>
+					<div class="tagcloud"></div>
 					 <ul class="id_tags" name="tags"></ul>
+						{% for tag in tags %}
+						<li>{{ tag }}</li>
+						{% endfor %}					 
 				</div>
 				<div class="exercise-instructions">
 					{{ form.instructions|attr:"autosave:true"|attr:"placeholder:Instructions for how to perform the exercise" }}
