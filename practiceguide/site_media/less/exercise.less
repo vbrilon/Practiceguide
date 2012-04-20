@@ -89,6 +89,38 @@
 	background: @card-background;
 }
 
+.exercise-card-large {
+	h3 {
+		font-size: 30px;
+		color: @mid-gray;
+	}
+	
+	.tagcloud {
+		width: @exercise-input-width;
+		min-height: 24px;
+		margin-bottom: 9px;
+		
+		.tag {
+			border: @tag-border;
+			background: @tag-background;
+			font-size: 15px;
+			color: @mid-gray;
+			padding: 3px 5px 4px 5px;
+			margin: 0 4px 4px 0;
+			display: inline-block;
+			position: relative;
+			
+			.tag-close {
+				position: absolute;
+				width: 12px;
+				height: 12px;
+				background: -312px 0 url("../img/glyphicons-halflings-white.png");
+				left: -16px;
+			}
+		}
+	}
+}
+
 .exercise-card-small {
 	border: @exercise-border;
 	width: 250px;
@@ -146,16 +178,40 @@
 		height: 80px;
 	}
 	
-	.exercise-tags textarea {
-		width: @exercise-input-width;
-		height: 40px;
-	}
-	
-	.exercise-tags .tagcloud {
-		width: @exercise-input-width;
-		min-height: 24px;
-		padding: 5px;
-		margin-bottom: 9px;
+	.exercise-tags {
+		textarea {
+			width: @exercise-input-width;
+			height: 40px;
+		}
+		
+		.tagcloud {
+			width: @exercise-input-width;
+			min-height: 24px;
+			margin-bottom: 9px;
+			
+			.tag {
+				border: @tag-border;
+				background: @tag-background;
+				font-size: 15px;
+				color: @mid-gray;
+				padding: 3px 5px 4px 5px;
+				margin: 0 4px 4px 0;
+				display: inline-block;
+				position: relative;
+				
+				.close {
+					position: absolute;
+					width: 12px;
+					height: 12px;
+					background: -312px 0 url("../img/glyphicons-halflings.png");
+					left: -16px;
+				}
+			}
+
+			.tag:last-child {
+				margin-right: 0;
+			}
+		}
 	}
 	
 	.exercise-instructions textarea {
