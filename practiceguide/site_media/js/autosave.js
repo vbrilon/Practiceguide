@@ -9,24 +9,19 @@ $("document").ready(function() {
 	Dajaxice.setup({'default_exception_callback': function(){ console.log('Error!'); }});
 });
 
+function timestamp() {
+	timechanged.text($.format.date(jQuery.now(), 'h:mm:ss a'));
+}
 function send_ajax(obj) {
-//	console.debug("GOT: " + obj.id);	
+//		console.debug("GOT: " + obj.id);	
 	virgin.addClass('hidden'); saving.removeClass('hidden'); saved.addClass('hidden');
 	$.autoSave.saving[ obj ] = true;
-	var val;
-	if (obj.id == 'id_tags') {
-		var temp=[];
-		$('.edit-view .tagcloud .tag').each(function() { temp.push($(this).text()) });
-		temp.push(obj.value);
-		val = temp.join(',');
-	}
-	else { val = obj.value}
-	Dajaxice.practice.exedit(my_callback, {'key':obj.id, 'val':val} );
+	Dajaxice.practice.exedit(my_callback, {'key':obj.id, 'val':obj.value} );
 	$.autoSave._oldObjString[ obj.name ] =  obj.value; 
 	//if ( typeof callback == 'function' ) callback( eval( obj ) );
 	$.autoSave.saving[ obj ] = false;
 	saving.addClass('hidden'); virgin.addClass('hidden'); saved.removeClass('hidden');
-	timechanged.text($.format.date(jQuery.now(), 'h:mm:ss a'));
+	timestamp();
 }
 
 function my_callback(data){
