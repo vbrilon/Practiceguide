@@ -4,7 +4,7 @@ $("document").ready(function() {
 		$(this).after('<br><span class="error-message">' + $(this).attr('error').substring(4) + '</span>');
 	});
 	
-    $('.edit-view .id_tags').tagit({
+    $('.edit-view .tagcloud').tagit({
 		removeConfirmation: true,
 		allowSpaces: true
 	});
