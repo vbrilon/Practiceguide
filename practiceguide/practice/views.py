@@ -69,8 +69,6 @@ def logout_view(request):
 def edit_exercise(request, ex=None):
   if ex is None:
     ex = Exercise(
-      title = "No Title",
-      description = "No Description",
       user = request.user
     )
     ex.save()

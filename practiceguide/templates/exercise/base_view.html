@@ -40,12 +40,11 @@
 					 <textarea id="id_tags" rows="10" cols="40" autosave="true" name="tags"></textarea>
 				</div>
 				<div class="exercise-instructions">
-					{{ form.instructions|attr:"autosave:true" }}
+					{{ form.instructions|attr:"autosave:true"|attr:"placeholder:Instructions for how to perform the exercise" }}
 				</div>
 			</div>
 			<div class="exercise-media-block">
 				<div class="media-url-input">
-					{{ form.media }}
 				</div>
 				<div class="media-upload-input">
 					<div class="dropzone"><span>Drag files from your computer here to upload them</span></div>
