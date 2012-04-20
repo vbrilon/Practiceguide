@@ -33,11 +33,12 @@
 					{{ form.description|attr:"autosave:true" }}
 				</div>
 				<div class="exercise-tags">
-					<div class="tagcloud"></div>
-					 <ul class="id_tags" name="tags"></ul>
-						{% for tag in tags %}
-						<li>{{ tag }}</li>
-						{% endfor %}					 
+					<ul class="tagcloud"> 
+							{% for tag in tags %}
+							<li class=>{{ tag }}</li>
+							{% endfor %}
+					 </ul>
+					 <textarea id="id_tags" rows="10" cols="40" autosave="true" name="tags"></textarea>
 				</div>
 				<div class="exercise-instructions">
 					{{ form.instructions|attr:"autosave:true"|attr:"placeholder:Instructions for how to perform the exercise" }}
@@ -83,10 +84,10 @@
 	
 	{% block exercise_card_small %}
 	<div id="exercise_001" class="exercise-card exercise-card-small">
-		<h3>Exercise Title</h3>
-		<div class="exercise-description">
+		<h3 class="exercise-title">Exercise Title</h3>
+		<p class="exercise-description">
 			Lorem ipsum dolor sit amet.
-		</div>
+		</p>
 		<div class="tagcloud"><span class="tag">hello everyone</span><span class="tag">I'm a tag</span><span class="tag">use me</span><span class="tag">when</span><span class="tag">you need</span><span class="tag">organization</span></div>
 	</div>
 	{% endblock %}
@@ -95,22 +96,17 @@
 		<div id="exercise_002" class="exercise-card exercise-card-large">
 			<div class="exercise-definition clearfix">
 				<div class="exercise-data-block">
-					<div class="exercise-title">
-						<h3>Exercise Title</h3>
-					</div>
-					<div class="exercise-description">
+					<h3 class="exercise-title">Exercise Title</h3>
+					<p class="exercise-description">
 						Lorem ipsum dolor sit amet
-					</div>
+					</p>
 					<div class="exercise-tags">
-						<div class="tagcloud">
-							<span class="tag">hello everyone</span><span class="tag">I'm a tag</span><span class="tag">use me</span><span class="tag">when</span><span class="tag">you need</span><span class="tag">organization</span>
-						</div>
+						<ul class="tagcloud">
+							<li class="tag">hello everyone</li><li class="tag">I'm a tag</li><li class="tag">use me</li><li class="tag">when</li><li class="tag">you need</li><li class="tag">organization</li>
+						</ul>
 					</div>
 					<div class="exercise-instructions">
-						<ol class="instruction-list">
-							<li>Do this one thing</li>
-							<li>Followed by another</li>
-						</ol>
+						
 					</div>
 				</div>
 				<div class="exercise-media-block">
