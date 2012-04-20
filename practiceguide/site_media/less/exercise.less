@@ -2,6 +2,7 @@
 @white: #fff;
 @near-white: #fcfcfc;
 @light-gray: #d5d5d5;
+@lighter-gray: lighten( @light-gray, 10%);
 @mid-gray: #666;
 @dark-gray: #222;
 
@@ -213,8 +214,8 @@
 			.tag:last-child {
 				margin-right: 0;
 			}
-		}
-	}
+		}//tagcloud
+	}//exercise-tags
 	
 	.exercise-instructions textarea {
 		width: @exercise-input-width;
@@ -250,28 +251,82 @@
 		display: inline-block;
 		max-width: @exercise-input-width - 20px;
 	}
-}
+	
+	.dropzone {
+		width: @media-input-width - 34px;
+		border: 2px dashed @light-gray;
+		height: 50px;
+		border-radius:			11px;
+		-webkit-border-radius:	11px;
+		-moz-border-radius:		11px;
+		text-align: center;
+		.content-box;
+		padding: 20px;
+		color: @light-gray;
+		font-size: 20px;
+		line-height: 24px;
+		margin-bottom: 9px;
+	}
+	
+	.media-list {
+		ul {
+			list-style: none;
+			padding-left: 0;
+			margin: 0 0 9px 0;
+			
+			li {
+				height: 80px;
+				margin-bottom: 3px;
+				background: @white;
+				border: 1px solid @lighter-gray;
+				div {
+					display: inline-block;
+					vertical-align: middle;
+				}
+			}
+		}
+		
+		.drag-handle {
+			height: 76px;
+			width: 24px;
+			padding: 2px;
+			background: content-box url("../img/touchtexture.png");	
+			margin-right: 9px;
+			float: left;
+		}
+		
+		.media-thumbnail-block {
+			width: 260px;
+			height: 80px;
+			margin-right: 9px;
+			float: left;
+		}
+		
+		.youtube-thumbnail-block {
+			width: 120px;
+			height: 72px;
+			margin: 4px;
+			background: @lighter-gray;
+		}
+		
+		.media-item-control-block {
+			float: right;
+			text-align: right;
+			padding-top: 26px;
+			margin-right: 9px;
+		}
+		
+		button:first-child {
+			margin-right: 9px;
+		}
+	}
+}//edit-view
 
 .exercise-metacontrol-block {
 	border-top: @exercise-rule;
 	margin-top: 9px;
 	padding-top: 9px;
 	padding-bottom: 2px;
-}
-
-.dropzone {
-	width: @media-input-width - 34px;
-	border: 2px dashed @light-gray;
-	height: 50px;
-	border-radius:			11px;
-	-webkit-border-radius:	11px;
-	-moz-border-radius:		11px;
-	text-align: center;
-	.content-box;
-	padding: 20px;
-	color: @light-gray;
-	font-size: 20px;
-	line-height: 24px;
 }
 
 .minimizer {
