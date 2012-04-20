@@ -3,12 +3,11 @@ from django import forms
 from practice.models import Exercise
 from django.forms import ModelForm, Textarea
 
-class ExerciseCreateModelForm(ModelForm):
+class ExerciseModelForm(ModelForm):
   class Meta: 
     model = Exercise
     fields = ('title', 'description', 'tags', 'instructions', 'media')
     widgets = {
-      'tags' : Textarea(),
       'instructions' : Textarea(),
     }
 
