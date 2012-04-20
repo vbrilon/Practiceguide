@@ -24,7 +24,7 @@ def exedit(request, key, val):
     # kill empty entries
     tags = filter(lambda x: not re.match(r'^\s*$', x), tags)
     print "TAGS ARE: %s" % tags
-    ex.tags.add(*tags)
+    ex.tags.set(*tags)
   else:
     print "{} set to {}".format(key, val)
     setattr(ex, key, val)

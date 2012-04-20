@@ -8,7 +8,16 @@ $("document").ready(function() {
 
 function send_ajax(obj) {
 	$.autoSave.saving[ obj ] = true;
-	Dajaxice.practice.exedit(my_callback, {'key':obj.id, 'val':obj.value} );
+	var val;
+	if (obj.id == 'id_tags') {
+		var temp=[];
+		$('.edit-view .tagcloud .tag').each(function() { temp.push($(this).text()) });
+		temp.push(obj.value);
+		val = temp.join(',');
+		console.debug("GOT: " + val);	
+	}
+	else { val = obj.value}
+	Dajaxice.practice.exedit(my_callback, {'key':obj.id, 'val':val} );
 	$.autoSave._oldObjString[ obj.name ] =  obj.value; 
 	//if ( typeof callback == 'function' ) callback( eval( obj ) );
 	$.autoSave.saving[ obj ] = false;
@@ -16,7 +25,7 @@ function send_ajax(obj) {
 
 function my_callback(data){
     if (data==Dajaxice.EXCEPTION){
-       alert('Error! Something happens!' + data);
+       console.debug('Error! Something happens!' + data);
      }
 } 
 
