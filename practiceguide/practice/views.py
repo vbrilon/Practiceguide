@@ -76,7 +76,7 @@ def edit_exercise(request, ex=None):
     ex.save()
   else:
     ex = get_object_or_404(Exercise, pk=ex)
-  form = ExerciseCreateModelForm(instance = ex)
+  form = ExerciseModelForm(instance = ex)
   request.session['current_exercise'] = ex.id
   variables = RequestContext(request, {'form': form})
   return render_to_response('exercise/base_view.html',variables)
