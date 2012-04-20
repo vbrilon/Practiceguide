@@ -7,6 +7,7 @@
 <script src="/site_media/js/jquery.dajax.core.js" type="text/javascript" charset="utf-8"></script>
 <script src="/site_media/js/exercise.js"></script>
 <script src="/site_media/js/autosave.js"></script>
+<script src="/site_media/js/dateFormat.js"></script>
 {% endblock %}
 
 {% block create_exercise_button %}
@@ -66,7 +67,7 @@
 				Saving...
 			</div>
 			<div class="save-status-block exercise-saved hidden">
-				Saved <br>at 00:00PM today
+				Saved <br>at <span class='exercise-saved-time'>00:00PM</span>
 			</div>
 			<div class="minimize-exercise-block">
 				<a class="minimizer" href=""></a>

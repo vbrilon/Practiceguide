@@ -33,4 +33,4 @@ def exedit(request, key, val):
   dajax = Dajax()
   dajax.assign('#result','value', "Data saved")
   return dajax.json()
-
+  

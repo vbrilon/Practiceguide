@@ -1,12 +1,16 @@
 var inputs;
+var virgin = $('.edit-view .virgin');
+var saving = $('.edit-view .exercise-save-in-progress');
+var saved = $('.edit-view .exercise-saved');
+var timechanged = $('.edit-view .exercise-saved-time');
 
 $("document").ready(function() { 
 	inputs = $('[autosave="true"]') ;
 	Dajaxice.setup({'default_exception_callback': function(){ console.log('Error!'); }});
 });
 
-
 function send_ajax(obj) {
+	virgin.addClass('hidden'); saving.removeClass('hidden'); saved.addClass('hidden');
 	$.autoSave.saving[ obj ] = true;
 	var val;
 	if (obj.id == 'id_tags') {
@@ -14,18 +18,20 @@ function send_ajax(obj) {
 		$('.edit-view .tagcloud .tag').each(function() { temp.push($(this).text()) });
 		temp.push(obj.value);
 		val = temp.join(',');
-		console.debug("GOT: " + val);	
+//		console.debug("GOT: " + val);	
 	}
 	else { val = obj.value}
 	Dajaxice.practice.exedit(my_callback, {'key':obj.id, 'val':val} );
 	$.autoSave._oldObjString[ obj.name ] =  obj.value; 
 	//if ( typeof callback == 'function' ) callback( eval( obj ) );
 	$.autoSave.saving[ obj ] = false;
+	saving.addClass('hidden'); virgin.addClass('hidden'); saved.removeClass('hidden');
+	timechanged.text($.format.date(jQuery.now(), 'h:mm:ss a'));
 }
 
 function my_callback(data){
     if (data==Dajaxice.EXCEPTION){
-       console.debug('Error! Something happens!' + data);
+       console.debug('Error! Something bad happened!' + data);
      }
 } 
 
