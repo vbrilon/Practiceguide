@@ -6,8 +6,9 @@ from django.forms import ModelForm, Textarea
 class ExerciseModelForm(ModelForm):
   class Meta: 
     model = Exercise
-    fields = ('title', 'description', 'instructions', 'media')
+    fields = ('title', 'description', 'instructions')
     widgets = {
+      'description' : Textarea,
       'instructions' : Textarea(),
     }
 
