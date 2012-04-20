@@ -8,6 +8,7 @@
 <script src="/site_media/js/exercise.js"></script>
 <script src="/site_media/js/autosave.js"></script>
 <script src="/site_media/js/dateFormat.js"></script>
+<script src="/site_media/js/tag-it.js"></script>
 {% endblock %}
 
 {% block create_exercise_button %}
@@ -37,7 +38,7 @@
 						<span class="tag"><a class="tag-close" href=""></a>{{ tag }}</span>
 						{% endfor %}
 					 </div>
-					 <textarea id="id_tags" rows="10" cols="40" autosave="true" name="tags"></textarea>
+					 <ul class="id_tags" name="tags"></ul>
 				</div>
 				<div class="exercise-instructions">
 					{{ form.instructions|attr:"autosave:true"|attr:"placeholder:Instructions for how to perform the exercise" }}
