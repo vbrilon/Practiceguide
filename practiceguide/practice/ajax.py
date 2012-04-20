@@ -21,6 +21,7 @@ def exedit(request, key, val):
     tags = (val.split(','))
     # kill whitespace
     tags = [n.strip() for n in tags]
+    # Replace newlines with a space
     tags = [re.sub(r'[\n\r]+',' ',n) for n in tags]
     # kill empty entries
     tags = filter(lambda x: not re.match(r'^\s*$', x), tags)
