@@ -21,9 +21,9 @@ def exedit(request, key, val):
     tags = (val.split(','))
     # kill whitespace
     tags = [n.strip() for n in tags]
+    tags = [re.sub(r'[\n\r]+',' ',n) for n in tags]
     # kill empty entries
     tags = filter(lambda x: not re.match(r'^\s*$', x), tags)
-    print "TAGS ARE: %s" % tags
     ex.tags.set(*tags)
   else:
     print "{} set to {}".format(key, val)
