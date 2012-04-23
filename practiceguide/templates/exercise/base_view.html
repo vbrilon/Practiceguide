@@ -1,14 +1,27 @@
 {% extends "base.html" %}
 {% load widget_tweaks %}
-
+{% load upload_tags %}
+		
 {% block title %}Exercises{% endblock %}
-{% block style %}<link rel="stylesheet" href="/site_media/css/exercise.css" type="text/css">{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="/site_media/css/exercise.css" type="text/css">
+<link rel="stylesheet" href="/site_media/css/upload/jqueryui/1.8.14/themes/base/jquery.ui.all.css" id="theme">
+<link rel="stylesheet" href="/site_media/css/upload/jquery.fileupload-ui.css">
+<link rel="stylesheet" href="/site_media/css/upload/style.css">
+<link rel="stylesheet" href="/site_media/css/upload/thumbnail-scaling.css">
+{% endblock %}
 {% block script %}
+<script src="/site_media/js/dateFormat.js"></script>
 <script src="/site_media/js/jquery.dajax.core.js" type="text/javascript" charset="utf-8"></script>
 <script src="/site_media/js/autosave.js"></script>
 <script src="/site_media/js/exercise.js"></script>
-<script src="/site_media/js/dateFormat.js"></script>
 <script src="/site_media/js/tag-it.js"></script>
+
+<script src="/site_media/js/upload/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+<script src="/site_media/js/upload/jquery.iframe-transport.js"></script>
+<script src="/site_media/js/upload/jquery.fileupload.js"></script>
+<script src="/site_media/js/upload/jquery.fileupload-ui.js"></script>
+<script src="/site_media/js/upload/application.js"></script>
 {% endblock %}
 
 {% block create_exercise_button %}
@@ -34,20 +47,41 @@
 				</div>
 				<div class="exercise-tags">
 					<ul class="tagcloud"> 
-							{% for tag in tags %}
-							<li class=>{{ tag }}</li>
-							{% endfor %}
-					 </ul>
+						{% for tag in tags %}
+						<li class=>{{ tag }}</li>
+						{% endfor %}
+					</ul>
 				</div>
 				<div class="exercise-instructions">
 					{{ form.instructions|attr:"autosave:true"|attr:"placeholder:Instructions for how to perform the exercise" }}
 				</div>
 			</div>
+			<div id="fileupload">
+			    <form method="post" action="/file_upload/" enctype="multipart/form-data">
+			        <div class="fileupload-buttonbar">
+			            {% csrf_token %}
+			            <label class="fileinput-button">
+			                <span>Add files or just drag and drop them here</span>
+			                <input type="file" name="file" multiple>
+			            </label>
+			            <button type="submit" class="start">Start upload</button>
+			            <button type="reset" class="cancel">Cancel upload</button>
+			            <button type="button" class="delete">Delete files</button>
+			        </div>
+			    </form>
+			    <div class="fileupload-content">
+			        <table class="files"></table>
+			        <div class="fileupload-progressbar"></div>
+			    </div>
+			</div>
+			{% upload_js %}
 			<div class="exercise-media-block">
 				<div class="media-url-input">
 				</div>
 				<div class="media-upload-input">
-					<div class="dropzone"><span>Drag files from your computer here to upload them</span></div>
+					<div class="dropzone">
+						
+					</div>
 				</div>
 				<div class="media-list">
 					<ul>
@@ -92,46 +126,114 @@
 	{% endblock %}
 	
 	{% block exercise_card_large %}
-		<div id="exercise_002" class="exercise-card exercise-card-large">
-			<div class="exercise-definition clearfix">
-				<div class="exercise-data-block">
-					<h3 class="exercise-title">Exercise Title</h3>
-					<p class="exercise-description">
-						Lorem ipsum dolor sit amet
-					</p>
-					<div class="exercise-tags">
-						<ul class="tagcloud">
-							<li class="tag">hello everyone</li><li class="tag">I'm a tag</li><li class="tag">use me</li><li class="tag">when</li><li class="tag">you need</li><li class="tag">organization</li>
-						</ul>
-					</div>
-					<div class="exercise-instructions">
-						
-					</div>
+	<div id="exercise_002" class="exercise-card exercise-card-large">
+		<div class="exercise-definition clearfix">
+			<div class="exercise-data-block">
+				<h3 class="exercise-title">Exercise Title</h3>
+				<p class="exercise-description">
+					Lorem ipsum dolor sit amet
+				</p>
+				<div class="exercise-tags">
+					<ul class="tagcloud">
+						<li class="tag">hello everyone</li><li class="tag">I'm a tag</li><li class="tag">use me</li><li class="tag">when</li><li class="tag">you need</li><li class="tag">organization</li>
+					</ul>
 				</div>
-				<div class="exercise-media-block">
-					<div class="media-url-input">
-						{{ form.media }}
-					</div>
-					<div class="media-upload-input">
-						<div class="dropzone"><span>Drag files from your computer here to upload them</span></div>
-					</div>
-					<div class="media-list">
-
-					</div>
+				<div class="exercise-instructions">
+						
 				</div>
 			</div>
-			<div class="exercise-metacontrol-block clearfix">
-				<div class="button-column">
-					<button class="play-exercise-button btn btn-inverse btn-large">Play it now</button>
-					<button class="edit-exercise-button btn btn-large">Edit</button>
-					<button class="copy-exercise-button btn btn-large">Create a copy</button>
-					<button class="btn btn-large">Sparkline</button>
+			<div class="exercise-media-block">
+				<div class="media-url-input">
+					{{ form.media }}
 				</div>
-				<div class="minimize-exercise-block">
-					<a class="minimizer" href=""></a>
+				<div class="media-upload-input">
+					<div class="dropzone"><span>Drag files from your computer here to upload them</span></div>
+				</div>
+				<div class="media-list">
+
 				</div>
 			</div>
 		</div>
+		<div class="exercise-metacontrol-block clearfix">
+			<div class="button-column">
+				<button class="play-exercise-button btn btn-inverse btn-large">Play it now</button>
+				<button class="edit-exercise-button btn btn-large">Edit</button>
+				<button class="copy-exercise-button btn btn-large">Create a copy</button>
+				<button class="btn btn-large">Sparkline</button>
+			</div>
+			<div class="minimize-exercise-block">
+				<a class="minimizer" href=""></a>
+			</div>
+		</div>
+	</div>
 	{% endblock %}
 </div>
+<script id="template-upload" type="text/x-jquery-tmpl">
+    <tr class="template-upload{{ open_tv }}if error{{ close_tv }} ui-state-error{{ open_tv }}/if{{ close_tv }}">
+        <td class="preview"></td>
+        <td class="name">${name}</td>
+        <td class="size">${sizef}</td>
+        {{ open_tv }}if error{{ close_tv }}
+        <td class="error" colspan="2">Error:
+            {{ open_tv }}if error === 'maxFileSize'{{ close_tv }}File is too big
+            {{ open_tv }}else error === 'minFileSize'{{ close_tv }}File is too small
+            {{ open_tv }}else error === 'acceptFileTypes'{{ close_tv }}Filetype not allowed
+            {{ open_tv }}else error === 'maxNumberOfFiles'{{ close_tv }}Max number of files exceeded
+            {{ open_tv }}else{{ close_tv }}${error}
+            {{ open_tv }}/if{{ close_tv }}
+        </td>
+        {{ open_tv }}else{{ close_tv }}
+        <td class="progress">
+            <div></div>
+        </td>
+        <td class="start">
+            <button>Start</button>
+        </td>
+        {{ open_tv }}/if{{ close_tv }}
+        <td class="cancel">
+            <button>Cancel</button>
+        </td>
+    </tr>
+</script>
+<script id="template-download" type="text/x-jquery-tmpl">
+    <tr class="template-download{{ open_tv }}if error{{ close_tv }} ui-state-error{{ open_tv }}/if{{ close_tv }}">
+        {{ open_tv }}if error{{ close_tv }}
+        <td></td>
+        <td class="name">${name}</td>
+        <td class="size">${sizef}</td>
+        <td class="error" colspan="2">Error:
+            {{ open_tv }}if error === 1{{ close_tv }}File exceeds upload_max_filesize (php.ini directive)
+            {{ open_tv }}else error === 2{{ close_tv }}File exceeds MAX_FILE_SIZE (HTML form directive)
+            {{ open_tv }}else error === 3{{ close_tv }}File was only partially uploaded
+            {{ open_tv }}else error === 4{{ close_tv }}No File was uploaded
+            {{ open_tv }}else error === 5{{ close_tv }}Missing a temporary folder
+            {{ open_tv }}else error === 6{{ close_tv }}Failed to write file to disk
+            {{ open_tv }}else error === 7{{ close_tv }}File upload stopped by extension
+            {{ open_tv }}else error === 'maxFileSize'{{ close_tv }}File is too big
+            {{ open_tv }}else error === 'minFileSize'{{ close_tv }}File is too small
+            {{ open_tv }}else error === 'acceptFileTypes'{{ close_tv }}Filetype not allowed
+            {{ open_tv }}else error === 'maxNumberOfFiles'{{ close_tv }}Max number of files exceeded
+            {{ open_tv }}else error === 'uploadedBytes'{{ close_tv }}Uploaded bytes exceed file size
+            {{ open_tv }}else error === 'emptyResult'{{ close_tv }}Empty file upload result
+            {{ open_tv }}else{{ close_tv }}${error}
+            {{ open_tv }}/if{{ close_tv }}
+        </td>
+        {{ open_tv }}else{{ close_tv }}
+        <td class="preview">
+            {{ open_tv }}if thumbnail_url{{ close_tv }}
+            <a href="${url}" target="_blank"><img src="${thumbnail_url}"></a>
+            {{ open_tv }}/if{{ close_tv }}
+        </td>
+        <td class="name">
+            <a href="${url}" {{ open_tv }}if thumbnail_url{{ close_tv }}
+               target="_blank"{{ open_tv }}/if{{ close_tv }}>${name}</a>
+        </td>
+        <td class="size">${sizef}</td>
+        <td colspan="2"></td>
+        {{ open_tv }}/if{{ close_tv }}
+        <td class="delete">
+            <button data-type="${delete_type}" data-url="${delete_url}">Delete</button>
+        </td>
+    </tr>
+</script>
 {% endblock %}

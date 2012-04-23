@@ -9,13 +9,14 @@ from dajaxice.core import dajaxice_autodiscover
 dajaxice_autodiscover()
 
 site_media = os.path.join(os.path.dirname(__file__), 'site_media')
+content = os.path.join(settings.MEDIA_ROOT, 'users')
 
 urlpatterns = patterns('',
   url(r'^$', 'practice.views.index'),
   url(r'^create_exercise/$', 'practice.views.edit_exercise'),
   url(r'^edit_exercise/(?P<ex>\d+)$', 'practice.views.edit_exercise'),
  # url(r'^schedule/$', 'practice.views.schedule'),
-  url(r'^practice/$', 'practice.views.exercises_index'),
+#  url(r'^practice/$', 'practice.views.exercises_index'),
  # url(r'^review/$', 'practice.views.review'),
  # url(r'^practice/(?P<id>\d+)/$', 'practice.views.practice'),
  # url(r'^user/(\w+)/$', 'user.views.user_page'),
@@ -28,4 +29,7 @@ urlpatterns = patterns('',
   url(r'^exercise_create/success/$', direct_to_template, {'template': 'exercise_create_success.html'}),
   url(r'^%s/' % settings.DAJAXICE_MEDIA_PREFIX, include('dajaxice.urls')),
   url(r'^test/$', direct_to_template, {'template': 'exercise/base_view.html'}),
+  url( r'file_upload/$', 'practice.views.upload'),
+  url( r'file_delete/(?P<ex>\d)$', 'practice.views.upload', name='upload-delete'),
+  url(r'^content/users/(?P<path>.*)$', 'django.views.static.serve', {'document_root': content}),
 )

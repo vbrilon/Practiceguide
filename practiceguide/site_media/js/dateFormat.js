@@ -1,5 +1,4 @@
 (function (jQuery) {
-		
 		var daysInWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 		var shortMonthsInYear = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 		var longMonthsInYear = ["January", "February", "March", "April", "May", "June", 

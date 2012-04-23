@@ -2,62 +2,25 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, Http404, HttpResponseRedirect, HttpResponseForbidden
 from django.contrib.auth import logout
 from django.shortcuts import render_to_response, get_object_or_404,redirect
-from practice.models import Exercise, Session, Performance
+from practice.models import Exercise, Session, Performance, Media
 from django.template import RequestContext
 from practice.forms import *
 from user.forms import RegistrationForm
 from dajax.core.Dajax import Dajax
 from dajaxice.decorators import dajaxice_register
+from django.middleware.csrf import get_token
+from django.utils import simplejson
+from django.conf import settings
+from django.core.urlresolvers import reverse
+import mimetypes
 import logging
 
-def edit_exercise(request):
-  if request.method == 'GET':
-    template = 'exercise/base_view.html'
-    return render_to_response(template, request)
-  elif request.method == 'POST':
-    print "I AM BEING CALLED"
-    dajax = Dajax()
-    dajax.assign('#result','value', "HELLO WORLD")
-    return dajax.json()
-  else:
-    print "How am I here?"
-  
-@login_required
-def exercises_index(request):
-  ex_list = Exercise.objects.filter(user=request.user)
-  variables = RequestContext(request, {
-     'ex_list': ex_list,
-  })
-  return render_to_response('exercise.html', variables)
+mimetypes.init()
 
 def index(request):
   reg_form = RegistrationForm()
   return render_to_response('index.html', {'reg_form': reg_form}, context_instance=RequestContext(request))
 
-@login_required  
-def practice(request, id):
-  try:
-    e = get_object_or_404(Exercise, pk=id)
-  except Exercise.DoesNotExist:
-    raise Http404
-  if request.user != e.user:
-    return HttpResponseForbidden()
-  if request.method == 'POST':
-    form = ExercisePracticeForm(request.POST)
-    if form.is_valid():
-      perf = Performance (
-        notes = form.cleaned_data['notes'],
-        speed = form.cleaned_data['speed'],
-        user = request.user,
-        rating = form.cleaned_data['choice'],
-        exercise = e,
-      )
-      perf.save()
-      return HttpResponseRedirect('/practice/')
-  else:
-    form = ExercisePracticeForm()
-  variables = RequestContext(request, {'form': form})
-  return render_to_response('ex_create.html',variables)
 
   
 @login_required
@@ -75,9 +38,39 @@ def edit_exercise(request, ex=None):
   else:
     ex = get_object_or_404(Exercise, pk=ex)
   form = ExerciseModelForm(instance = ex)
-  tags = ex.tags.all()
   request.session['current_exercise'] = ex.id
-  variables = RequestContext(request, {'form': form, 'tags': tags})
+  csrf_token =  get_token( request )
+  variables = RequestContext(request, {'form': form, 'csrf_token': csrf_token})
   return render_to_response('exercise/base_view.html',variables)
   
-      
+def upload(request, ex=None):
+  f = request.FILES.get('file')
+  if f is None:
+    data = []
+  else:  
+    ex = get_object_or_404(Exercise, pk=request.session['current_exercise'])
+    media = Media(mediafile=f, mediatype=mimetypes.guess_type(f.name))
+    media.save()
+    ex.media.add(media)
+    ex.save()
+    data = [{'name': f.name, 'url': settings.MEDIA_URL + "users/" + f.name.replace(" ", "_"), 
+      'thumbnail_url': settings.MEDIA_URL + "users/" + f.name.replace(" ", "_"), 
+      'delete_url': reverse('upload-delete', args=[ex.id]), 'delete_type': "DELETE"}]
+  response = JSONResponse(data, {}, response_mimetype(request))
+  response['Content-Disposition'] = 'inline; filename=files.json'
+  return response
+  
+
+def response_mimetype(request):
+  if "application/json" in request.META['HTTP_ACCEPT']:
+    return "application/json"
+  else:
+    return "text/plain"
+
+  
+class JSONResponse(HttpResponse):
+  """JSON response class."""
+  def __init__(self,obj='',json_opts={},mimetype="application/json",*args,**kwargs):
+    content = simplejson.dumps(obj,**json_opts)
+    super(JSONResponse,self).__init__(content,mimetype,*args,**kwargs)
+

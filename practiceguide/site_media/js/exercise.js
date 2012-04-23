@@ -30,5 +30,6 @@ $("document").ready(function() {
 			console.debug('Error! Something bad happened!' + data);
 		}
 	}
-	
 });
+
+

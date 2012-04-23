@@ -18,6 +18,7 @@ def exedit(request, key, val):
     print "ERROR -- Exercise not found in ajax.py"
     print "DEBUG {}".format(request.session['current_exercise'])
   setattr(ex, key, val)
+  print "SET: {} - {}".format(key, val)
   ex.last_updated = datetime.datetime.now
   ex.save()
   dajax = Dajax()

@@ -1,5 +1,4 @@
 var Dajaxice = {
-    
 
     get_cookie: function(name)
     {

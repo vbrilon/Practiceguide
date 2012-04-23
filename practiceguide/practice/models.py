@@ -8,15 +8,16 @@ import datetime
 # Create your models here.
 
 class Media(models.Model):
-  url = models.CharField(max_length=1024, blank=False, null=False)
-  media_type = models.CharField(max_length=100, blank=False, null=False)
+  url = models.URLField(max_length=1024, blank=False, null=False)
+  mediafile =  models.FileField(upload_to="users") # this is appended to MEDIA_ROOT
+  mediatype = models.CharField(max_length=100, blank=False, null=False)
   name = models.CharField(max_length=100)
   created_date = models.DateTimeField(auto_now_add=True)
   last_updated = models.DateTimeField(auto_now=True)
   class Meta:
     ordering = ['name']    
     def __str__(self):
-      return self.title
+      return self.name
   		
 class Exercise(models.Model):
   title = models.CharField(max_length=250)
