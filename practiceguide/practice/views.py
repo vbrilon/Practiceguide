@@ -60,7 +60,15 @@ def upload(request, ex=None):
   response['Content-Disposition'] = 'inline; filename=files.json'
   return response
   
-
+def delete(request, media=None):
+  """Only used w/in our uploader object"""
+  media = get_object_or_404(Media, pk=media)
+  media.delete()
+  response = JSONResponse(True, {}, response_mimetype(self.request))
+  response['Content-Disposition'] = 'inline; filename=files.json'
+  return response
+  
+  
 def response_mimetype(request):
   if "application/json" in request.META['HTTP_ACCEPT']:
     return "application/json"

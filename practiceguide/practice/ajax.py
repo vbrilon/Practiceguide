@@ -42,3 +42,6 @@ def tag(request, tag, method):
   dajax.assign('#result','value', "Data saved")
   return dajax.json()
   
+@dajaxice_register
+def media_delete(request, name):
+  print "Name is: %s" % name

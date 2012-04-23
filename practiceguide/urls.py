@@ -30,6 +30,6 @@ urlpatterns = patterns('',
   url(r'^%s/' % settings.DAJAXICE_MEDIA_PREFIX, include('dajaxice.urls')),
   url(r'^test/$', direct_to_template, {'template': 'exercise/base_view.html'}),
   url( r'file_upload/$', 'practice.views.upload'),
-  url( r'file_delete/(?P<ex>\d)$', 'practice.views.upload', name='upload-delete'),
+  url( r'file_delete/(?P<media>\d)$', 'practice.views.delete', name='upload-delete'),
   url(r'^content/users/(?P<path>.*)$', 'django.views.static.serve', {'document_root': content}),
 )
