@@ -44,18 +44,21 @@ def edit_exercise(request, ex=None):
   variables = RequestContext(request, {'form': form, 'csrf_token': csrf_token})
   return render_to_response('exercise/base_view.html',variables)
   
-def upload(request, ex=None):
+def upload(request):
+  ex = get_object_or_404(Exercise, pk=request.session['current_exercise'])
   f = request.FILES.get('file')
+  data = []
   if f is None:
-    # TOFIX: Return a list of existing files
-    data = []
+    for f in ex.media.all():
+      data.append({'name':  os.path.basename(f.mediafile.name), 'url': settings.MEDIA_URL + f.mediafile.name.replace(" ", "_"), 
+      'thumbnail_url': settings.MEDIA_URL + f.mediafile.name.replace(" ", "_"), 
+      'delete_url': reverse('upload-delete', args=[f.id]), 'delete_type': "DELETE"})
   else:  
-    ex = get_object_or_404(Exercise, pk=request.session['current_exercise'])
     media = Media(mediafile=f, mediatype=mimetypes.guess_type(f.name))
     media.save()
     ex.media.add(media)
     ex.save()
-    data = [{'name': f.name, 'url': settings.MEDIA_URL + "users/" + f.name.replace(" ", "_"), 
+    data = [{'name':f.name, 'url': settings.MEDIA_URL + "users/" + f.name.replace(" ", "_"), 
       'thumbnail_url': settings.MEDIA_URL + "users/" + f.name.replace(" ", "_"), 
       'delete_url': reverse('upload-delete', args=[media.id]), 'delete_type': "DELETE"}]
   response = JSONResponse(data, {}, response_mimetype(request))
@@ -67,6 +70,7 @@ def file_delete(request, pk):
   if media is None:
     print "Can't find that media"
   else:
+    media.delete()
     os.remove(os.path.join(settings.MEDIA_ROOT, media.mediafile.name))
   response = JSONResponse(True, {}, response_mimetype(request))
   response['Content-Disposition'] = 'inline; filename=files.json'
