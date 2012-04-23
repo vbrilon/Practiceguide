@@ -14,6 +14,7 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 import mimetypes
 import logging
+import os
 
 mimetypes.init()
 
@@ -46,6 +47,7 @@ def edit_exercise(request, ex=None):
 def upload(request, ex=None):
   f = request.FILES.get('file')
   if f is None:
+    # TOFIX: Return a list of existing files
     data = []
   else:  
     ex = get_object_or_404(Exercise, pk=request.session['current_exercise'])
@@ -55,11 +57,21 @@ def upload(request, ex=None):
     ex.save()
     data = [{'name': f.name, 'url': settings.MEDIA_URL + "users/" + f.name.replace(" ", "_"), 
       'thumbnail_url': settings.MEDIA_URL + "users/" + f.name.replace(" ", "_"), 
-      }]
+      'delete_url': reverse('upload-delete', args=[media.id]), 'delete_type': "DELETE"}]
   response = JSONResponse(data, {}, response_mimetype(request))
   response['Content-Disposition'] = 'inline; filename=files.json'
   return response
-  
+
+def file_delete(request, pk):
+  media = Media.objects.get(pk=pk)
+  if media is None:
+    print "Can't find that media"
+  else:
+    os.remove(os.path.join(settings.MEDIA_ROOT, media.mediafile.name))
+  response = JSONResponse(True, {}, response_mimetype(request))
+  response['Content-Disposition'] = 'inline; filename=files.json'
+  return response
+    
   
 def response_mimetype(request):
   if "application/json" in request.META['HTTP_ACCEPT']:
