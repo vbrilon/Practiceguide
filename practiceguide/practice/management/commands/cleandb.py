@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
 from django.core.management import call_command 
-import os
+import os, shutil
 from django.contrib.auth.models import User
 
 class Command(BaseCommand):
@@ -8,6 +8,7 @@ class Command(BaseCommand):
     # Nuke existing db
     try:
       os.remove('db/guitarlog.db')
+      shutil.rmtree('content/users/')
     except os.error:
       pass
     # Build a new one

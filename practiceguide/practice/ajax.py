@@ -3,9 +3,12 @@ from dajaxice.core import dajaxice_functions
 from dajaxice.core import dajaxice_autodiscover 
 from dajax.core.Dajax import Dajax
 from dajaxice.decorators import dajaxice_register
-from practice.models import Exercise
+from practice.models import Exercise, Media
+from django.conf import settings
+
 import datetime
 import re
+import os
 
 dajaxice_autodiscover() 
 @dajaxice_register
@@ -44,4 +47,11 @@ def tag(request, tag, method):
   
 @dajaxice_register
 def media_delete(request, name):
-  print "Name is: %s" % name
+  media = Media.objects.get(mediafile="users/%s" % name)
+  if media is None:
+    print "Can't find that media"
+  else:
+    print os.path.join(settings.MEDIA_ROOT, media.mediafile)
+  dajax = Dajax()
+  return dajax.json()
+  

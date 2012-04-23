@@ -55,16 +55,8 @@ def upload(request, ex=None):
     ex.save()
     data = [{'name': f.name, 'url': settings.MEDIA_URL + "users/" + f.name.replace(" ", "_"), 
       'thumbnail_url': settings.MEDIA_URL + "users/" + f.name.replace(" ", "_"), 
-      'delete_url': reverse('upload-delete', args=[ex.id]), 'delete_type': "DELETE"}]
+      }]
   response = JSONResponse(data, {}, response_mimetype(request))
-  response['Content-Disposition'] = 'inline; filename=files.json'
-  return response
-  
-def delete(request, media=None):
-  """Only used w/in our uploader object"""
-  media = get_object_or_404(Media, pk=media)
-  media.delete()
-  response = JSONResponse(True, {}, response_mimetype(self.request))
   response['Content-Disposition'] = 'inline; filename=files.json'
   return response
   
