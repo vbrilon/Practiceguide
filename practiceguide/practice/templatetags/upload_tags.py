@@ -58,8 +58,8 @@ def upload_js():
                 <td class="name">
                     <a href="${url}"{{if thumbnail_url}} target="_blank"{{/if}}>${name}</a>
                 </td>
-            <td class="delete-vb">
-                <button data-type="${delete_type}" data-url="${delete_url}" onclick="Dajaxice.practice.media_delete(my_callback, {'name': '${name}'})">Delete</button>
+            <td class="delete">
+                <button data-type="${delete_type}" data-url="${delete_url}">Delete</button>
             </td>
                 <td class="size">${sizef}</td>
                 <td colspan="2"></td>
@@ -67,4 +67,3 @@ def upload_js():
         </tr>
     </script>
     """
-                #<button data-type="${delete_type}" data-url="${delete_url}">Delete</button>

@@ -44,14 +44,3 @@ def tag(request, tag, method):
   dajax = Dajax()
   dajax.assign('#result','value', "Data saved")
   return dajax.json()
-  
-@dajaxice_register
-def media_delete(request, name):
-  media = Media.objects.get(mediafile="users/%s" % name)
-  if media is None:
-    print "Can't find that media"
-  else:
-    print os.path.join(settings.MEDIA_ROOT, media.mediafile)
-  dajax = Dajax()
-  return dajax.json()
-  
