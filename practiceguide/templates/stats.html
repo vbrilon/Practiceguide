@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block script %}
+<script src="/site_media/js/jquery.sparkline.min.js"></script>
+<script src="/site_media/js/stats.js"></script>
+
+{% endblock %}
+
+{% block main %}
+Here is my chart: <span class="chart"> 
+{% for item in data %}
+{{item}},
+{% endfor %}
+</span>
+
+{% endblock %}

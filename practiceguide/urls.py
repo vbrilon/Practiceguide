@@ -32,4 +32,5 @@ urlpatterns = patterns('',
   url( r'file_upload/$', 'practice.views.upload'),
   url( r'file_delete/(?P<pk>\d+)$', 'practice.views.file_delete', name="upload-delete"),
   url(r'^content/users/(?P<path>.*)$', 'django.views.static.serve', {'document_root': content}),
+  url(r'^stats/$', 'practice.views.stats'),
 )

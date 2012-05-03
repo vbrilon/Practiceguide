@@ -18,11 +18,21 @@ import os
 
 mimetypes.init()
 
+
+
 def index(request):
   reg_form = RegistrationForm()
   return render_to_response('index.html', {'reg_form': reg_form}, context_instance=RequestContext(request))
 
-
+def stats(request):
+  import random
+  data = []
+  for x in range(100):
+    number = random.randint(1, 100)
+    data.append(number)
+  variables = RequestContext(request, {'data': data})
+  return render_to_response('stats.html',variables)
+  
   
 @login_required
 def logout_view(request):
