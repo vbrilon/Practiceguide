@@ -56,34 +56,27 @@
 					{{ form.instructions|attr:"autosave:true"|attr:"placeholder:Instructions for how to perform the exercise" }}
 				</div>
 			</div>
-			<div id="fileupload">
-			    <form method="post" action="/file_upload/" enctype="multipart/form-data">
-			        <div class="fileupload-buttonbar">
-			            {% csrf_token %}
-			            <label class="fileinput-button">
-			                <span>Add files or just drag and drop them here</span>
-			                <input type="file" name="file" multiple>
-			            </label>
-			           <!-- <button type="submit" class="start">Start upload</button>
-			            <button type="reset" class="cancel">Cancel upload</button>
-			           <button type="button" class="delete">Delete files</button>
-					   -->
-			        </div>
-			    <div class="fileupload-content">
-			        <table class="files"></table>
-			        <div class="fileupload-progressbar"></div>
-			    </div>
-			   </form>
-			</div>
-			{% upload_js %}
+			
 			<div class="exercise-media-block">
 				<div class="media-url-input">
 				</div>
-				<div class="media-upload-input">
-					<div class="dropzone">
-						
-					</div>
+				<div id="fileupload" class="media-upload-input">
+					<form method="post" action="/file_upload/" enctype="multipart/form-data">
+						<div class="dropzone">
+							{% csrf_token %}
+							<div class="fileupload-buttonbar"></div>
+				            <label class="fileinput-button">
+				                <span>Add files or just drag and drop them here</span>
+				                <input type="file" name="file" multiple>
+				            </label>
+						</div>
+				    <div class="fileupload-content">
+				        <table class="files"></table>
+				        <div class="fileupload-progressbar"></div>
+				    </div>
+				   </form>
 				</div>
+				{% upload_js %}
 				<div class="media-list">
 					<ul>
 						<li class="media-item clearfix"><div class="drag-handle"></div><div class="media-thumbnail-block">
@@ -220,7 +213,7 @@
             {{ open_tv }}/if{{ close_tv }}
         </td>
         {{ open_tv }}else{{ close_tv }}
-        <td class="preview">
+        <td class="preview">hello
             {{ open_tv }}if thumbnail_url{{ close_tv }}
             <a href="${url}" target="_blank"><img src="${thumbnail_url}"></a>
             {{ open_tv }}/if{{ close_tv }}

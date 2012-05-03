@@ -98,3 +98,7 @@
 .ui-state-disabled input {
   cursor: default;
 }
+
+.fileupload-buttonbar {
+	visibility: hidden;
+}
