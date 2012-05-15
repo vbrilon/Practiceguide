@@ -604,6 +604,7 @@
         _create: function () {
             $.blueimp.fileupload.prototype._create.call(this);
             this._initTemplates();
+            /*
             this.element
                 .addClass('ui-widget');
             this._initFileUploadButtonBar();
@@ -611,6 +612,7 @@
                 .addClass('ui-widget-content ui-corner-bottom');
             this.element.find('.fileupload-progressbar')
                 .hide().progressbar();
+            */
         },
         
         destroy: function () {

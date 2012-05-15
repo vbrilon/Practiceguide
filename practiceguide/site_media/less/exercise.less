@@ -278,56 +278,15 @@
 		margin-bottom: 9px;
 	}
 	
-	.media-list {
-		ul {
-			list-style: none;
-			padding-left: 0;
-			margin: 0 0 9px 0;
-			
-			li {
-				height: 80px;
-				margin-bottom: 3px;
-				background: @white;
-				border: 1px solid @lighter-gray;
-				div {
-					display: inline-block;
-					vertical-align: middle;
-				}
-			}
-		}
+	.files {
+		border-left: 1px solid @lighter-gray;
+		border-right: 1px solid @lighter-gray;
 		
-		.drag-handle {
-			height: 76px;
-			width: 24px;
-			padding: 2px;
-			background: content-box url("../img/touchtexture.png");	
-			margin-right: 9px;
-			float: left;
-		}
-		
-		.media-thumbnail-block {
-			width: 260px;
+		td {
 			height: 80px;
-			margin-right: 9px;
-			float: left;
-		}
-		
-		.youtube-thumbnail-block {
-			width: 120px;
-			height: 72px;
-			margin: 4px;
-			background: @lighter-gray;
-		}
-		
-		.media-item-control-block {
-			float: right;
-			text-align: right;
-			padding-top: 26px;
-			margin-right: 9px;
-		}
-		
-		button:first-child {
-			margin-right: 9px;
+			background: @white;
+			border-top: 1px solid @lighter-gray;
+			border-bottom: 1px solid @lighter-gray;
 		}
 	}
 }//edit-view

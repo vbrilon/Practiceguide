@@ -56,10 +56,11 @@ def upload_js():
                     {{/if}}
                 </td>
                 <td class="name">
-                    <a href="${url}"{{if thumbnail_url}} target="_blank"{{/if}}>${name}</a>
+                    <input type="text" id="${id}-name"><br>
+                    <span class="media-url">${name}</span>
                 </td>
             <td class="delete">
-                <button data-type="${delete_type}" data-url="${delete_url}">Delete</button>
+                <button data-type="${delete_type}" data-url="${delete_url}" class="btn btn-warning">Delete</button>
             </td>
                 <td class="size">${sizef}</td>
                 <td colspan="2"></td>
