@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %} Playing: Practice Plan Name{% endblock %}
+{% block script %}<script src="/site_media/js/play.js"></script>{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="/site_media/css/play.css" type="text/css">
+{% endblock %}
+{% block main %}
+
+{% endblock %}
+
+{% block bottomcontrol %}
+<div id="player_control">
+	<div id="player_control_content_wrapper">
+		<div id="accompaniment_wrapper" class="clearfix">
+			<div id="metronome">
+				<a id="metronome_option_control" href=""><i class="icon-cog icon-white"></i></a>
+				<div id="metronome_visualization_wrapper" class="clearfix">
+					<div id="metronome_bpm_outer">
+						<div id="metronome_bpm_inner"></div>
+					</div>
+				</div>
+				
+				<div id="metronome_bpm_wrapper" class="clearfix">
+					<div id="metronome_bpm_readout">120</div>
+					<div id="metronome_bpm_slider"></div>
+				</div>
+				
+				<div id="metronome_time_sig_wrapper">
+					<div id="metronome_beats_wrapper" class="clearfix">
+						<div id="metronome_beats_readout">4</div>
+						<div id="metronome_beats_slider"></div>
+					</div>
+					<div id="metronome_time_sig_divider"></div>
+					<div id="metronome_note_value_wrapper" class="clearfix">
+						<div id="metronome_note_value_readout">4</div>
+						<div id="metronome_note_value_slider"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="player_control_timer_wrapper">
+			<a id="timer_option_control" href=""><i class="icon-cog icon-white"></i></a>
+			<div id="timer_current_wrapper">
+				<span id="timer_session_hours" class="timer-readout">0</span><span id="timer_session_minutes" class="timer-readout">:00</span><span id="timer_session_seconds" class="timer-readout">:00</span>
+				<div id="current_session_label">This session</div>
+			</div>
+			<div id="timer_total_wrapper">
+				<span id="timer_total_hours" class="timer-readout">0</span><span id="timer_total_minutes" class="timer-readout">:00</span><span id="timer_total_seconds" class="timer-readout">:00</span>
+				<div id="total_time_label">Total time on this exercise</div>
+			</div>
+		</div>
+		<div id="player_control_button_wrapper">
+			<div id="master_button_container">
+				<button id="start_practicing" class="btn btn-large btn-primary">Start practicing</button><button id="skip_forward" class="btn btn-large btn-inverse">&gt;&gt;</button>
+			</div>
+			<p id="count_in_container">
+				Count in <input type="text" id="count_in_measures" maxlength="2"> measures
+			</p>
+		</div>
+	</div>
+</div>
+{% endblock %}
